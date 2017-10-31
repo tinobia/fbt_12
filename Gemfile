@@ -6,13 +6,14 @@ git_source(:github) do |repo_name|
 end
 
 gem "coffee-rails", "~> 4.2"
-gem "jbuilder", "~> 2.5"
-gem "mysql2", ">= 0.3.18", "< 0.5"
-gem "puma", "~> 3.7"
-gem "rails", "~> 5.1.4"
-gem "sass-rails", "~> 5.0"
-gem "turbolinks", "~> 5"
-gem "uglifier", ">= 1.3.0"
+gem "config",       "~> 1.5.1"
+gem "jbuilder",     "~> 2.5"
+gem "mysql2",       ">= 0.3.18", "< 0.5"
+gem "puma",         "~> 3.7"
+gem "rails",        "~> 5.1.4"
+gem "sass-rails",   "~> 5.0"
+gem "turbolinks",   "~> 5"
+gem "uglifier",     ">= 1.3.0"
 
 group :development, :test do
   gem "byebug", platforms: %i(mri mingw x64_mingw)
