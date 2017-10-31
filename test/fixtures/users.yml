@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+barry:
+  username: flash
+  password_digest: placeholder
+  is_admin: false
+  first_name: Barry
+  last_name: Allen
+  email: thefastestmanalive@flash.com
+
+dan:
+  username: theironfirst
+  password_digest: placeholder
+  is_admin: true
+  first_name: Danny
+  last_name: Rand
+  email: dannyrand@theironfirst.com
