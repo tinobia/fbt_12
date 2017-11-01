@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
-  attr_accessor :activation_token
+  attr_accessor :activation_token, :remember_token
 
   validates :email, format: {with: VALID_EMAIL_REGEX},
     length: {maximum: Settings.max_email_length}, presence: true,
@@ -10,6 +10,8 @@ class User < ApplicationRecord
     length: {maximum: Settings.max_username_length,
              minimum: Settings.min_username_length},
     uniqueness: true
+  validates :password, length: {minimum: Settings.min_password_length},
+    presence: true, allow_nil: true
   validates :first_name, length: {maximum: Settings.max_first_name_length}
   validates :last_name, length: {maximum: Settings.max_last_name_length}
 
@@ -30,6 +32,15 @@ class User < ApplicationRecord
     digest = send "#{attribute}_digest"
     return false unless digest
     BCrypt::Password.new(digest).is_password? token
+  end
+
+  def remember
+    self.remember_token = User.new_token
+    update_attributes remember_digest: User.digest(remember_token)
+  end
+
+  def forget
+    update_attributes remember_digest: nil
   end
 
   class << self
