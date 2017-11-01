@@ -1,0 +1,9 @@
+en:
+  user_mailer:
+    account_activation:
+      subject: "Account activation"
+      greeting: "Hi %{username},"
+      activate: "Activate"
+      activation_instruction: >-
+        Welcome to the Sample App!
+        Click on the link below to activate your account:
