@@ -1,4 +1,18 @@
 en:
+  app:
+    title: "Fbt 12"
+  static_pages:
+    about:
+      title: "About"
+    contact:
+      title: "Contact"
+    home:
+      title: "Home"
   layouts:
     application:
       title: "Fbt12"
+      base_title: "Fbt12"
+    header:
+      home: "Home"
+      about: "About"
+      contact: "Contact"
