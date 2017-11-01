@@ -6,10 +6,13 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <%= nav_link t(".home"), root_path %>
+      <%= nav_link t(".about"), about_path %>
+      <%= nav_link t(".contact"), contact_path %>
+    </ul>
     <ul class="navbar-nav ml-auto">
-        <%= nav_link t(".home"), root_path %>
-        <%= nav_link t(".about"), about_path %>
-        <%= nav_link t(".contact"), contact_path %>
+      <%= nav_link t(".signup"), signup_path %>
     </ul>
   </div>
 </nav>
