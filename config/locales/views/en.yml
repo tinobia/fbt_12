@@ -19,6 +19,14 @@ en:
       remember_me: "Remember me"
       new_user?: "New user?"
       sign_up_now: "Sign up now"
+  password_resets:
+    new:
+      title: "Forgot password"
+      submit: "Submit"
+    edit:
+      title: "Reset password"
+      password_confirmation: "Confirmation"
+      update_password: "Update password"
   layouts:
     application:
       title: "Fbt12"
@@ -38,7 +46,12 @@ en:
         one: "The form contains 1 error."
         other: "The form contains %{count} errors."
       invalid_activation_link: "Invalid activation link"
+      reset_expired: "The reset token has expired!"
+      can_not_be_empty: "can't be empty"
+      email_not_found:  "Email address not found"
     success_messages:
       account_activated: "Account activated!"
+      password_has_been_reset: "Your password has been reset"
     info_messages:
       check_email_notice: "Please check your email to activate your account."
+      password_reset_email_sent: "Email sent with password reset instructions"
