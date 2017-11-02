@@ -8,6 +8,7 @@ barry:
   last_name: Allen
   email: thefastestmanalive@flash.com
   activated: false
+  reset_sent_at: <%= Time.now %>
 
 dan:
   username: theironfirst
@@ -17,3 +18,4 @@ dan:
   last_name: Rand
   email: dannyrand@theironfirst.com
   activated: true
+  reset_sent_at: <%= Time.now %>

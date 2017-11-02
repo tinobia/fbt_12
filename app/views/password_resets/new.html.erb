@@ -1,0 +1,13 @@
+<% provide :title, t(".title") %>
+<h1><%= t ".title" %></h1>
+
+<div class="row justify-content-md-center">
+  <div class="col col-md-6">
+    <%= form_for :password_reset, url: password_resets_path do |f| %>
+      <%= f.label :email %>
+      <%= email_field_tag :email, nil, class: "form-control" %>
+
+      <%= f.submit t(".submit"), class: "btn btn-primary w-100" %>
+    <% end %>
+  </div>
+</div>
