@@ -26,5 +26,8 @@ en:
       errors:
         one: "The form contains 1 error."
         other: "The form contains %{count} errors."
+      invalid_activation_link: "Invalid activation link"
     success_messages:
-      user_created: "Your account is created."
+      account_activated: "Account activated!"
+    info_messages:
+      check_email_notice: "Please check your email to activate your account."

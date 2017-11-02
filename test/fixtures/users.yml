@@ -2,16 +2,18 @@
 
 barry:
   username: flash
-  password_digest: placeholder
+  password_digest: <%= User.digest "password" %>
   is_admin: false
   first_name: Barry
   last_name: Allen
   email: thefastestmanalive@flash.com
+  activated: false
 
 dan:
   username: theironfirst
-  password_digest: placeholder
+  password_digest: <%= User.digest "password" %>
   is_admin: true
   first_name: Danny
   last_name: Rand
   email: dannyrand@theironfirst.com
+  activated: true
