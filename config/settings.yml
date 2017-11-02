@@ -4,3 +4,5 @@ max_last_name_length: 50
 max_username_length: 50
 min_username_length: 6
 min_password_length: 6
+remember_me: "remember"
+forget_me: "forget"

@@ -1,0 +1,28 @@
+<% provide :title, t(".title") %>
+<h1><%= t ".title" %></h1>
+
+<div class="row justify-content-md-center">
+  <div class="col col-md-6">
+    <%= form_for :session, url: login_path do |f| %>
+
+      <%= f.label :username %>
+      <%= f.email_field :username, class: "form-control" %>
+
+      <%= f.label :password %>
+      <%= link_to t(".forgot_password"), "#" %>
+      <%= f.password_field :password, class: "form-control" %>
+
+      <div class="form-check">
+        <%= f.label :remember_me, class: "form-check-label" do %>
+          <%= f.check_box :remember_me, {class: "form-check-input"},
+            Settings.remember_me, Settings.forget_me %>
+          <%= t ".remember_me" %>
+        <% end %>
+      </div>
+
+      <%= f.submit t(".title"), class: "btn btn-primary w-100" %>
+    <% end %>
+
+    <p><%= t ".new_user?" %> <%= link_to t(".sign_up_now"), signup_path %></p>
+  </div>
+</div>

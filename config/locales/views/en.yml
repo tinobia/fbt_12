@@ -10,8 +10,15 @@ en:
       title: "Home"
   users:
     new:
-      title: Sign up
+      title: "Sign up"
       create_account: "Create Account"
+  sessions:
+    new:
+      title: "Login"
+      forgot_password: "(forgot password)"
+      remember_me: "Remember me"
+      new_user?: "New user?"
+      sign_up_now: "Sign up now"
   layouts:
     application:
       title: "Fbt12"
@@ -21,6 +28,10 @@ en:
       about: "About"
       contact: "Contact"
       signup: "Sign Up"
+      login: "Login"
+      account: "Account"
+      profile: "Profile"
+      logout: "Log out"
   shared:
     error_messages:
       errors:
