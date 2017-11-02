@@ -8,6 +8,10 @@ en:
       title: "Contact"
     home:
       title: "Home"
+  users:
+    new:
+      title: Sign up
+      create_account: "Create Account"
   layouts:
     application:
       title: "Fbt12"
@@ -16,3 +20,11 @@ en:
       home: "Home"
       about: "About"
       contact: "Contact"
+      signup: "Sign Up"
+  shared:
+    error_messages:
+      errors:
+        one: "The form contains 1 error."
+        other: "The form contains %{count} errors."
+    success_messages:
+      user_created: "Your account is created."

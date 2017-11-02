@@ -12,4 +12,6 @@ class User < ApplicationRecord
   validates :last_name, length: {maximum: Settings.max_last_name_length}
 
   before_save ->{email.downcase!}
+
+  has_secure_password
 end
