@@ -7,7 +7,7 @@ module Admin
     private
 
     def authorize_user
-      if current_user
+      if logged_in?
         return if current_user.is_admin?
         flash[:danger] = t "shared.error_messages.not_allowed_to_view"
         redirect_to root_url

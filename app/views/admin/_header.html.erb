@@ -6,5 +6,9 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse h-100" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <%= nav_link t(".home"), root_path %>
+      <%= nav_link t(".users"), admin_users_path %>
+    </ul>
   </div>
 </nav>
