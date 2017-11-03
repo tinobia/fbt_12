@@ -19,3 +19,13 @@ dan:
   email: dannyrand@theironfirst.com
   activated: true
   reset_sent_at: <%= Time.now %>
+
+jonny:
+  username: theghostrider
+  password_digest: <%= User.digest "password" %>
+  is_admin: false
+  first_name: Jonny
+  last_name: Blaze
+  email: jonnyblaze@theghostrider.com
+  activated: true
+  reset_sent_at: <%= Time.now %>
