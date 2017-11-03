@@ -7,3 +7,7 @@ min_password_length: 6
 remember_me: "remember"
 forget_me: "forget"
 reset_expired: 2
+default_gravatar_size: 80
+medium_image_size: "300x300>"
+thumb_image_size: "100x100>"
+placeholder_path: "/images/:style/missing.png"

@@ -12,6 +12,10 @@ en:
     new:
       title: "Sign up"
       create_account: "Create Account"
+    show:
+      title: "User profile"
+      account_informations: "Account informations"
+      save_changes: "Save changes"
   sessions:
     new:
       title: "Login"
@@ -34,6 +38,7 @@ en:
   admin:
     title: "Fbt12 Admin"
   shared:
+    anonymous: "Anonymous"
     header:
       home: "Home"
       about: "About"
@@ -53,11 +58,13 @@ en:
       email_not_found:  "Email address not found"
       not_allowed_to_view: "You are not allowed to view this page."
       have_to_be_logged_in: "You have to be logged in first to view this page."
+      user_not_found: "Can't find user with id %{id}"
     warning_messages:
       account_not_activated: "You have to activate your account before logging in."
     success_messages:
       account_activated: "Account activated!"
       password_has_been_reset: "Your password has been reset"
+      changes_saved: "Your changes is saved"
     info_messages:
       check_email_notice: "Please check your email to activate your account."
       password_reset_email_sent: "Email sent with password reset instructions"

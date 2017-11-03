@@ -20,6 +20,11 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  has_attached_file :avatar, styles: {medium: Settings.medium_image_size,
+                                      thumb: Settings.thumb_image_size},
+    default_url: Settings.placeholder_path
+  validates_attachment_content_type :avatar, content_type: %r{\Aimage/.*\z}
+
   def send_activation_email
     UserMailer.account_activation(self).deliver_now
   end

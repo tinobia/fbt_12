@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :find_user, only: :create
+  before_action :load_user, only: :create
 
   def new; end
 
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
     log_in @user
     should_remember = session_params[:remember_me] == Settings.remember_me
     should_remember ? remember(@user) : forget(@user)
-    redirect_back_or root_url
+    redirect_back_or @user
   end
 
   def handle_account_not_activated
@@ -41,7 +41,7 @@ class SessionsController < ApplicationController
     render :new
   end
 
-  def find_user
+  def load_user
     @user = User.find_by username: session_params[:username]
   end
 
