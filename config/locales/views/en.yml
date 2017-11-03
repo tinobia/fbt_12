@@ -31,6 +31,9 @@ en:
     application:
       title: "Fbt12"
       base_title: "Fbt12"
+  admin:
+    title: "Fbt12 Admin"
+  shared:
     header:
       home: "Home"
       about: "About"
@@ -40,7 +43,6 @@ en:
       account: "Account"
       profile: "Profile"
       logout: "Log out"
-  shared:
     error_messages:
       errors:
         one: "The form contains 1 error."
@@ -49,6 +51,10 @@ en:
       reset_expired: "The reset token has expired!"
       can_not_be_empty: "can't be empty"
       email_not_found:  "Email address not found"
+      not_allowed_to_view: "You are not allowed to view this page."
+      have_to_be_logged_in: "You have to be logged in first to view this page."
+    warning_messages:
+      account_not_activated: "You have to activate your account before logging in."
     success_messages:
       account_activated: "Account activated!"
       password_has_been_reset: "Your password has been reset"
