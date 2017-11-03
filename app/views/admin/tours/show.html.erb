@@ -1,0 +1,43 @@
+<% provide :title, @tour.name %>
+
+<% content_for :action do %>
+  <%= link_to t("admin.tours.edit.title"), edit_admin_tour_path(@tour),
+    class: "btn btn-dark align-self-center" %>
+  <%= link_to t("admin.tours.delete.action"), admin_tour_path(@tour),
+    method: :delete, data: {confirm: t("admin.tours.delete.confirmation")},
+    class: "btn btn-danger align-self-center" %>
+<% end %>
+
+<div class="row">
+  <div class="col-10 mx-auto bg-light m-2 pt-4">
+    <h2 class="text-center"><%= t "admin.tours.show.tour_informations" %></h2>
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <th scope="row"><%= Tour.human_attribute_name :id %></th>
+          <td><%= @tour.id %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= Tour.human_attribute_name :name %></th>
+          <td><%= @tour.name %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= Tour.human_attribute_name :departure %></th>
+          <td><%= @tour.departure %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= Tour.human_attribute_name :arrival %></th>
+          <td><%= @tour.arrival %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= Tour.human_attribute_name :itinerary %></th>
+          <td><%= @tour.itinerary %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= Tour.human_attribute_name :overview %></th>
+          <td><%= @tour.overview %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

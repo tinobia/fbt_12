@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   namespace :admin do
     root "main#index"
     resources :users, except: %i(create destroy new)
+    resources :tours
   end
 end

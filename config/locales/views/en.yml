@@ -41,15 +41,30 @@ en:
     header:
       home: "Home"
       users: "Users"
+      tours: "Tours"
     users:
       index:
         title: "Users"
       edit:
         title: "Edit user"
+    tours:
+      index:
+        title: "Tours"
+      new:
+        title: "New tour"
+        create_tour: "Create tour"
+      edit:
+        title: "Edit tour"
+      show:
+        tour_informations: "Tour informations"
+      delete:
+        action: "Delete"
+        confirmation: "Are you sure you  want to delete this tour?"
   shared:
     actions: "Actions"
     anonymous: "Anonymous"
     back: "Back"
+    save_changes: "Save changes"
     header:
       home: "Home"
       about: "About"
@@ -70,13 +85,16 @@ en:
       not_allowed_to_view: "You are not allowed to view this page."
       have_to_be_logged_in: "You have to be logged in first to view this page."
       user_not_found: "Can't find user with id %{id}"
+      tour_not_found: "Can't find tour with id %{id}"
       invalid_login_credential: "Wrong username/password combination"
+      can_not_delete_tour: "Can't delete tour with id %{id}"
     warning_messages:
       account_not_activated: "You have to activate your account before logging in."
     success_messages:
       account_activated: "Account activated!"
       password_has_been_reset: "Your password has been reset"
       changes_saved: "Your changes is saved"
+      tour_deleted: "The tour is deleted"
     info_messages:
       check_email_notice: "Please check your email to activate your account."
       password_reset_email_sent: "Email sent with password reset instructions"

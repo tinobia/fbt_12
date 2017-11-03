@@ -13,3 +13,4 @@ thumb_image_size: "100x100>"
 placeholder_path: "/images/:style/missing.png"
 per_page:
   user: 10
+  tour: 10

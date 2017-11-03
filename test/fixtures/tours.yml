@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  departure: MyString
+  arrival: MyString
+  avg_stars: 3.1
+  itenerary: MyText
+  overview: MyText
+
+two:
+  departure: MyString
+  arrival: MyString
+  avg_stars: 2.3
+  itenerary: MyText
+  overview: MyText
