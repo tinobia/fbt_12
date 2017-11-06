@@ -61,6 +61,8 @@ class User < ApplicationRecord
     reset_sent_at < Settings.reset_expired.hours.ago
   end
 
+  alias is? ==
+
   class << self
     # Returns the hash digest of the given string.
     def digest string

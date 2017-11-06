@@ -15,6 +15,7 @@ en:
     show:
       title: "User profile"
       account_informations: "Account informations"
+    edit_form:
       save_changes: "Save changes"
   sessions:
     new:
@@ -37,8 +38,18 @@ en:
       base_title: "Fbt12"
   admin:
     title: "Fbt12 Admin"
+    header:
+      home: "Home"
+      users: "Users"
+    users:
+      index:
+        title: "Users"
+      edit:
+        title: "Edit user"
   shared:
+    actions: "Actions"
     anonymous: "Anonymous"
+    back: "Back"
     header:
       home: "Home"
       about: "About"
@@ -59,6 +70,7 @@ en:
       not_allowed_to_view: "You are not allowed to view this page."
       have_to_be_logged_in: "You have to be logged in first to view this page."
       user_not_found: "Can't find user with id %{id}"
+      invalid_login_credential: "Wrong username/password combination"
     warning_messages:
       account_not_activated: "You have to activate your account before logging in."
     success_messages:

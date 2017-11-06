@@ -12,10 +12,10 @@ $gray-medium-light: #eaeaea;
 
 /* universal */
 
-$navbar_size: 70px;
+$navbar-size: 66px;
 
-body {
-  margin-top: $navbar_size + 10px;
+.container {
+  margin-top: $navbar-size + 10px;
 }
 
 section {
@@ -43,15 +43,11 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 3em;
   letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
 }
 
 h2 {
   font-size: 2em;
   letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
   font-weight: normal;
 }
 
@@ -143,4 +139,48 @@ input {
   min-height: 100px;
   padding-bottom: 50px;
   margin-bottom: 20px;
+}
+
+/* admin */
+
+.title-bar {
+  margin-top: $navbar-size;
+  padding: 10px 30px;
+}
+
+
+.pagination {
+  background: $gray-200;
+  border: 1px solid $gray-300;
+  text-align: center;
+  padding: 5px;
+  cursor: default;
+
+  a, span {
+    padding: 3px 4px;
+  }
+
+  .disabled {
+    color: $gray-600;
+  }
+
+  .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: $gray-500;
+    width: 27px;
+    height: 27px;
+    line-height: 27px;
+    border-radius: 50%;
+    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+
+    &:hover, &:focus {
+      text-decoration: underline;
+    }
+  }
 }

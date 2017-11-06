@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
 
   def handle_invalid_login
     flash.now[:danger] =
-      t "activerecord.errors.models.session.invalid_login_credential"
+      t "shared.error_messages.invalid_login_credential"
     render :new
   end
 
