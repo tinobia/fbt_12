@@ -42,6 +42,20 @@ en:
       home: "Home"
       users: "Users"
       tours: "Tours"
+      categories: "Categories"
+    categories:
+      index:
+        title: "Categories"
+      new:
+        title: "New categories"
+        create_category: "Create category"
+      show:
+        category_informations: "Category informations"
+      delete:
+        action: "Delete"
+        confirmation: "Are you sure you want to delete this category?"
+      edit:
+        title: "Edit category"
     users:
       index:
         title: "Users"
@@ -59,7 +73,7 @@ en:
         tour_informations: "Tour informations"
       delete:
         action: "Delete"
-        confirmation: "Are you sure you  want to delete this tour?"
+        confirmation: "Are you sure you want to delete this tour?"
   shared:
     actions: "Actions"
     anonymous: "Anonymous"
@@ -90,8 +104,11 @@ en:
       have_to_be_logged_in: "You have to be logged in first to view this page."
       user_not_found: "Can't find user with id %{id}"
       tour_not_found: "Can't find tour with id %{id}"
+      category_not_found: "Can't find category with id %{id}"
       invalid_login_credential: "Wrong username/password combination"
       can_not_delete_tour: "Can't delete tour with id %{id}"
+      can_not_delete_category: "Can't delete category with id %{id}"
+      can_not_be_self_or_descendants: "can't be self or descendants"
     warning_messages:
       account_not_activated: "You have to activate your account before logging in."
     success_messages:
@@ -99,6 +116,7 @@ en:
       password_has_been_reset: "Your password has been reset"
       changes_saved: "Your changes is saved"
       tour_deleted: "The tour is deleted"
+      category_deleted: "The category is deleted"
     info_messages:
       check_email_notice: "Please check your email to activate your account."
       password_reset_email_sent: "Email sent with password reset instructions"

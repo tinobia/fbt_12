@@ -1,0 +1,14 @@
+<% provide :title, t(".title") %>
+<% content_for :action do %>
+  <%= link_to t("admin.categories.new.title"), new_admin_category_path,
+    class: "btn btn-dark align-self-center" %>
+<% end %>
+<div class="row m-2 pt-4">
+  <div class="col bg-light border pt-2 pb-1">
+    <ul class="w-100 category-list pl-0">
+      <% @roots.each do |root| %>
+        <%= render "categories", parent: root %>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<li class="w-100">
+  <%= link_to parent.name, admin_category_path(parent) %>
+  <%= link_to fa_icon("times-circle-o 2x"), admin_category_path(parent), method: :delete,
+    data: {confirm: t("admin.categories.delete.confirmation")},
+    class: "float-right text-danger" %>
+  <% unless parent.leaf? %>
+    <%= link_to fa_icon("caret-down 2x"), "#item#{parent.id}",
+      data: {toggle: "collapse", target: "#item#{parent.id}"},
+      class: "category-toggles text-dark" %>
+   <% end %>
+</li>
+<% unless parent.leaf? %>
+  <div id="item<%= parent.id %>" class="collapse show">
+    <ul class="w-100 category-list">
+      <% parent.children.each do |child| %>
+        <%= render "categories", parent: child %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
