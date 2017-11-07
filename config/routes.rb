@@ -19,4 +19,6 @@ Rails.application.routes.draw do
     resources :users, except: %i(create destroy new)
     resources :tours
   end
+
+  mount Ckeditor::Engine => "/ckeditor"
 end
