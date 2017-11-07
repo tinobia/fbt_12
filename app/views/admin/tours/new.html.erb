@@ -1,9 +1,9 @@
 <% provide :title, t(".title") %>
 
 <div class="row justify-content-md-center">
-  <div class="col-10 bg-light m-2 pt-4">
+  <div class="col bg-light m-2 pt-4">
     <h2 class="text-center"><%= t "admin.tours.show.tour_informations" %></h2>
-    <div class="col-md-6 col-11 mx-auto">
+    <div class="mx-auto">
       <%= render partial: "form", locals: {
         submit_text: t(".create_tour"),
         form_url: admin_tours_path} %>

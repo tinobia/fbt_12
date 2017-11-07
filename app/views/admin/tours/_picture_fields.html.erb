@@ -1,0 +1,5 @@
+<li class="pt-3 mt-2 border fields">
+  <%= image_tag f.object.image.url if f.object.image.present? %>
+  <%= f.file_field :image, class: "form-control-file" %>
+  <%= link_to_remove_fields t("shared.remove"), f %>
+</li>

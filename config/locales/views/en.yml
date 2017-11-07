@@ -65,6 +65,9 @@ en:
     anonymous: "Anonymous"
     back: "Back"
     save_changes: "Save changes"
+    delete: "Delete"
+    remove: "Remove"
+    add: "Add"
     header:
       home: "Home"
       about: "About"
@@ -81,6 +84,7 @@ en:
       invalid_activation_link: "Invalid activation link"
       reset_expired: "The reset token has expired!"
       can_not_be_empty: "can't be empty"
+      is_not_valid: "is not valid"
       email_not_found:  "Email address not found"
       not_allowed_to_view: "You are not allowed to view this page."
       have_to_be_logged_in: "You have to be logged in first to view this page."
