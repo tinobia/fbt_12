@@ -28,6 +28,7 @@ AllCops:
     - 'Capfile'
     - 'Rakefile'
     - 'config.ru'
+  TargetRubyVersion: 2.2
 Documentation:
     Enabled: false
 # By default, the rails cops are not run. Override in project or home

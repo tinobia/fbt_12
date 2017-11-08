@@ -1,6 +1,7 @@
 module Admin
   class ToursController < Admin::AdminController
     before_action :load_tour, except: %i(new index create)
+    before_action :load_pictures, only: %i(edit update)
 
     def new
       @tour = Tour.new
@@ -25,7 +26,8 @@ module Admin
     def edit; end
 
     def update
-      if @tour.update_attributes tour_params
+      @tour.thumbnail_id = params[:thumbnail_id]
+      if @tour.update_attributes(tour_params)
         flash[:success] = t "shared.success_messages.changes_saved"
         redirect_to admin_tour_url(@tour)
       else
@@ -51,9 +53,14 @@ module Admin
       redirect_to admin_root_url
     end
 
+    def load_pictures
+      @pictures =
+        @tour.pictures.map{|pic| ["", pic.id, {"data-img-src": pic.image.url}]}
+    end
+
     def tour_params
       params.require(:tour).permit :name, :departure, :arrival,
-        :itinerary, :overview
+        :itinerary, :overview, pictures_attributes: %i(id image _destroy)
     end
   end
 end
