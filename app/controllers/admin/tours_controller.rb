@@ -2,6 +2,7 @@ module Admin
   class ToursController < Admin::AdminController
     before_action :load_tour, except: %i(new index create)
     before_action :load_pictures, only: %i(edit update)
+    before_action :load_categories, except: %i(index show destroy)
 
     def new
       @tour = Tour.new
@@ -58,8 +59,12 @@ module Admin
         @tour.pictures.map{|pic| ["", pic.id, {"data-img-src": pic.image.url}]}
     end
 
+    def load_categories
+      @categories = Category.leaves
+    end
+
     def tour_params
-      params.require(:tour).permit :name, :departure, :arrival,
+      params.require(:tour).permit :name, :departure, :arrival, :category_id,
         :itinerary, :overview, pictures_attributes: %i(id image _destroy)
     end
   end

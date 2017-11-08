@@ -4,42 +4,6 @@
 <% end %>
 <div class="row m-2 pt-4">
   <div class="col">
-    <table class="table table-hover table-striped">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col"><%= Tour.human_attribute_name :id %></th>
-          <th scope="col" class="w-25"><%= Tour.human_attribute_name :name %></th>
-          <th scope="col" class="w-25"><%= Tour.human_attribute_name :departure %></th>
-          <th scope="col" class="w-25"><%= Tour.human_attribute_name :arrival %></th>
-          <th scope="col"><%= t "shared.actions" %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @tours.each do |tour| %>
-          <tr>
-            <th scope="row">
-              <%= tour.id %>
-            </th>
-            <td>
-              <%= link_to tour.name, admin_tour_path(tour) %>
-            </td>
-            <td><%= tour.departure %></td>
-            <td><%= tour.arrival %></td>
-            <td>
-              <%= link_to t("admin.tours.edit.title"), edit_admin_tour_path(tour),
-                class: "btn btn-dark align-self-center" %>
-              <%= link_to t("admin.tours.delete.action"), admin_tour_path(tour),
-                method: :delete, data: {confirm: t("admin.tours.delete.confirmation")},
-                class: "btn btn-danger align-self-center" %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <% if will_paginate @tours %>
-      <div class="pagination justify-content-center">
-        <%= will_paginate @tours, container: false %>
-      </div>
-    <% end %>
+    <%= render "tour_list", tours: @tours %>
   </div>
 </div>

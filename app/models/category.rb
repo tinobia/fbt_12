@@ -1,6 +1,8 @@
 class Category < ApplicationRecord
   include ActAsTree
 
+  has_many :tours, dependent: :destroy
+
   validates :name, presence: true
   validate :parent_cannot_be_self_or_descendants
 
