@@ -1,0 +1,13 @@
+<% provide :title, t(".title") %>
+<% content_for :action do %>
+  <%= link_to t("shared.back"), :back, class: "btn btn-dark" %>
+<% end %>
+<div class="row justify-content-md-center">
+  <div class="col bg-light m-2 pt-4">
+    <h2 class="text-center"><%= t "admin.categories.show.category_informations" %></h2>
+    <div class="mx-auto">
+      <%= render "form", submit_text: t(".create_category"),
+        form_url: admin_categories_path %>
+    </div>
+  </div>
+</div>

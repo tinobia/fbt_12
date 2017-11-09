@@ -22,12 +22,12 @@ class Tour < ApplicationRecord
   end
 
   def valid_thumbnail
-    return if (@pic = pictures.find_by id: thumbnail_id)
+    return if thumbnail_id.nil? || (@pic = pictures.find_by id: thumbnail_id)
     errors.add :thumbnail, t("shared.error_messages.is_not_valid")
   end
 
   def update_thumbnail
-    return unless errors.empty?
+    return unless @pic && errors.empty?
     pictures.update is_thumbnail: false
     @pic.update_attributes is_thumbnail: true
   end
