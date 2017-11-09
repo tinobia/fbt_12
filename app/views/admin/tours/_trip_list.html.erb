@@ -1,0 +1,47 @@
+<table class="table table-hover table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col"><%= Tour.human_attribute_name :id %></th>
+      <th scope="col"><%= Tour.human_attribute_name :from %></th>
+      <th scope="col"><%= Tour.human_attribute_name :to %></th>
+      <th scope="col"><%= Tour.human_attribute_name :max_people %></th>
+      <th scope="col"><%= Tour.human_attribute_name :total_people %></th>
+      <th scope="col"><%= Tour.human_attribute_name :price %></th>
+      <th scope="col"><%= Tour.human_attribute_name :active? %></th>
+      <th scope="col"><%= t "shared.actions" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% trips.each do |trip| %>
+      <tr>
+        <th scope="row">
+          <%= link_to trip.id, admin_trip_path(trip) %>
+        </th>
+        <td><%= l trip.from %></td>
+        <td><%= l trip.to %></td>
+        <td><%= trip.max_people %></td>
+        <td><%= trip.total_people %></td>
+        <td><%= number_to_currency trip.price %></td>
+        <td>
+          <% if trip.active? %>
+            <%= fa_icon "check-circle-o 2x", class: "text-success" %>
+          <% else %>
+            <%= fa_icon "times-circle-o 2x", class: "text-danger" %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to t("shared.edit"), edit_admin_trip_path(trip),
+            class: "btn btn-dark align-self-center" %>
+          <%= link_to t("shared.delete"), admin_trip_path(trip),
+            method: :delete, data: {confirm: t("admin.trips.delete.confirmation")},
+            class: "btn btn-danger align-self-center" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% if will_paginate trips %>
+  <div class="pagination justify-content-center">
+    <%= will_paginate trips, container: false %>
+  </div>
+<% end %>

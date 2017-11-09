@@ -1,0 +1,56 @@
+<% provide :title, "#{@trip.tour.name} ##{@trip.id}" %>
+
+<% content_for :action do %>
+  <%= link_to t("shared.back"), admin_tour_path(@trip.tour, tab: Settings.trips_tab),
+    class: "btn btn-dark align-self-center" %>
+  <%= link_to t("admin.trips.edit.title"), edit_admin_trip_path(@trip),
+    class: "btn btn-dark align-self-center" %>
+  <%= link_to t("admin.trips.delete.action"), admin_trip_path(@trip),
+    method: :delete, data: {confirm: t("admin.trips.delete.confirmation")},
+    class: "btn btn-danger align-self-center" %>
+<% end %>
+
+<div class="row">
+  <div class="col-12 col-md-3 bg-light m-2 pt-4">
+    <h2 class="text-center"><%= t "admin.trips.show.trip_informations" %></h2>
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <th scope="row"><%= Trip.human_attribute_name :id %></th>
+          <td><%= @trip.id %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= Trip.human_attribute_name :from %></th>
+          <td><%= l @trip.from %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= Trip.human_attribute_name :to %></th>
+          <td><%= l @trip.to %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= Trip.human_attribute_name :max_people %></th>
+          <td><%= @trip.max_people %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= Trip.human_attribute_name :total_people %></th>
+          <td><%= @trip.total_people %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= Trip.human_attribute_name :price %></th>
+          <td><%= number_to_currency @trip.price %></td>
+        </tr>
+
+        <tr>
+          <th scope="row"><%= Trip.human_attribute_name :active? %></th>
+          <td>
+            <% if @trip.active? %>
+              <%= fa_icon "check-circle-o 2x", class: "text-success" %>
+            <% else %>
+              <%= fa_icon "times-circle-o 2x", class: "text-danger" %>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
