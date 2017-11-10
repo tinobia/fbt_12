@@ -1,17 +1,33 @@
-<%= form_for @user, url: local_assigns[:form_url] do |f| %>
-  <%= render "shared/error_messages", object: f.object %>
+<div class="lightbox" style="display:block;">
+  <div class="lb-wrap">
+    <%= link_to "x", root_path, class: "close" %>
+    <div class="lb-content">
+      <%= form_for @user, url: form_url do |f| %>
+        <h1><%= t "users.new.title" %></h1>
+        <%= render "shared/error_messages", object: f.object %>
 
-  <%= f.label :username %>
-  <%= f.text_field :username, class: "form-control" %>
+        <div class="f-item">
+          <%= f.label :username %>
+          <%= f.text_field :username, class: "form-control" %>
+        </div>
 
-  <%= f.label :email %>
-  <%= f.email_field :email, class: "form-control" %>
+        <div class="f-item">
+          <%= f.label :email %>
+          <%= f.email_field :email, class: "form-control" %>
+        </div>
 
-  <%= f.label :password %>
-  <%= f.password_field :password, class: "form-control" %>
+        <div class="f-item">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: "form-control" %>
+        </div>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, class: "form-control" %>
+        <div class="f-item">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, class: "form-control" %>
+        </div>
 
-  <%= f.submit local_assigns[:button_text], class: "btn btn-primary w-100" %>
-<% end %>
+        <%= f.submit submit_text, class: "gradient-button" %>
+      <% end %>
+    </div>
+  </div>
+</div>

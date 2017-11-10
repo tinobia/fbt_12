@@ -1,13 +1,12 @@
 <% provide :title, t(".title") %>
-<h1><%= t ".title" %></h1>
-
-<div class="row justify-content-md-center">
-  <div class="col col-md-6">
-    <%= form_for :password_reset, url: password_resets_path do |f| %>
+<div class="content clearfix">
+  <h1><%= t ".title" %></h1>
+  <%= form_for :password_reset, url: password_resets_path do |f| %>
+    <div class="f-item">
       <%= f.label :email %>
-      <%= email_field_tag :email, nil, class: "form-control" %>
+      <%= email_field_tag :email, nil %>
+    </div>
 
-      <%= f.submit t(".submit"), class: "btn btn-primary w-100" %>
-    <% end %>
-  </div>
+    <%= f.submit t(".submit"), class: "gradient-button" %>
+  <% end %>
 </div>

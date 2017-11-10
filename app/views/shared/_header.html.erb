@@ -1,35 +1,42 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <%= link_to t("app.title"), root_path, class: "navbar-brand logo" %>
-  <button class="navbar-toggler" type="button"
-    data-toggle="collapse" data-target="#navbarCollapse"
-    aria-controls="navbarCollapse" aria-expanded="false">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse h-100" id="navbarCollapse">
-    <ul class="navbar-nav mr-auto">
-      <%= nav_link t(".home"), root_path %>
-      <%= nav_link t(".about"), about_path %>
-      <%= nav_link t(".contact"), contact_path %>
-    </ul>
-    <ul class="navbar-nav ml-auto">
-      <% if logged_in? %>
-        <div class="dropdown">
-          <button class="btn dropdown-toggle bg-dark text-light"
-            type="button" id="dropdownMenuButton"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= t ".account"%>
-          </button>
-          <div class="dropdown-menu dropdown-menu-right"
-            aria-labelledby="dropdownMenuButton">
-            <%= link_to t(".profile"), current_user, class: "dropdown-item" %>
-            <%= link_to t(".logout"), logout_path,
-              class: "dropdown-item", method: :delete %>
-          </div>
-        </div>
-      <% else %>
-        <%= nav_link t(".signup"), signup_path %>
-        <%= nav_link t(".login"), login_path %>
+<header>
+  <div class="wrap clearfix">
+    <h1 class="logo">
+      <%= link_to root_path, class: "navbar-brand logo", title: t("app.title") do %>
+        <%= image_tag image_path("txt/logo.png") %>
+      <% end %>
+    </h1>
+    <div class="ribbon">
+      <nav>
+        <ul class="profile-nav">
+          <% if logged_in? %>
+            <li class="active">
+              <%= link_to t(".profile"), current_user, title: t(".profile") %>
+            </li>
+            <li>
+              <%= link_to t(".logout"), logout_path, method: :delete %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to t(".signup"), signup_path %>
+            </li>
+            <li>
+              <%= link_to t(".login"), login_path, remote: true %>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+    <div class="contact">
+      <span><%= t "shared.support_number" %></span>
+      <span class="number"><%= Settings.contact_number %></span>
+    </div>
+  </div>
+  <nav class="main-nav" role="navigation" id="nav">
+    <ul class="wrap">
+      <% category_roots.each do |root| %>
+        <%= render "shared/category", category: root %>
       <% end %>
     </ul>
+  </nav>
   </div>
-</nav>
+</header>
