@@ -3,9 +3,11 @@ class Tour < ApplicationRecord
 
   belongs_to :category
   has_many :pictures, dependent: :destroy
+  has_many :trips, dependent: :destroy
 
   validates :avg_stars,
-    numericality: {greater_than: 0, less_than_or_equal_to: 5},
+    numericality: {greater_than: Settings.lowest_star,
+                   less_than_or_equal_to: Settings.highest_star},
     allow_nil: true
   validates :arrival, presence: true
   validates :departure, presence: true

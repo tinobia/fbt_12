@@ -1,4 +1,7 @@
 en:
+  time:
+    formats:
+      default: "%m-%d-%Y"
   app:
     title: "Fbt 12"
   static_pages:
@@ -74,6 +77,19 @@ en:
       delete:
         action: "Delete"
         confirmation: "Are you sure you want to delete this tour?"
+    trips:
+      index:
+        title: "Trips"
+      new:
+        title: "New trip"
+        create_trip: "Create trip"
+      edit:
+        title: "Edit trip"
+      show:
+        trip_informations: "Trip informations"
+      delete:
+        action: "Delete"
+        confirmation: "Are you sure you want to delete this trip?"
   shared:
     actions: "Actions"
     edit: "Edit"
@@ -106,18 +122,23 @@ en:
       user_not_found: "Can't find user with id %{id}"
       tour_not_found: "Can't find tour with id %{id}"
       category_not_found: "Can't find category with id %{id}"
+      trip_not_found: "Can't find trip with id %{id}"
       invalid_login_credential: "Wrong username/password combination"
       can_not_delete_tour: "Can't delete tour with id %{id}"
       can_not_delete_category: "Can't delete category with id %{id}"
+      can_not_delete_trip: "Can't delete trip with id %{id}"
       can_not_be_self_or_descendants: "can't be self or descendants"
+      total_people_bigger_than_max_people: "bigger than max people"
     warning_messages:
       account_not_activated: "You have to activate your account before logging in."
     success_messages:
       account_activated: "Account activated!"
       password_has_been_reset: "Your password has been reset"
-      changes_saved: "Your changes is saved"
-      tour_deleted: "The tour is deleted"
-      category_deleted: "The category is deleted"
+      changes_saved: "Your changes was saved"
+      tour_deleted: "The tour was deleted"
+      category_deleted: "The category was deleted"
+      trip_created: "The trip was created"
+      trip_deleted: "The trip was deleted"
     info_messages:
       check_email_notice: "Please check your email to activate your account."
       password_reset_email_sent: "Email sent with password reset instructions"

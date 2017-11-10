@@ -1,0 +1,38 @@
+<%= form_for [@tour, @trip], url: form_url do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <div class="row">
+    <div class="form-group col-12 col-md-6">
+      <%= f.label :from, class: "mr-sm-2" %>
+      <%= f.date_field :from, class: "form-control mb-2 mr-sm-2 mb-sm-0 w-100" %>
+    </div>
+
+    <div class="form-group col-12 col-md-6">
+      <%= f.label :to, class: "mr-sm-2" %>
+      <%= f.date_field :to, class: "form-control mb-2 mr-sm-2 mb-sm-0 w-100" %>
+    </div>
+
+    <div class="form-group col-12 col-md-6">
+      <%= f.label :max_people, class: "mr-sm-2" %>
+      <%= f.number_field :max_people, class: "form-control mb-2 mr-sm-2 mb-sm-0 w-100" %>
+    </div>
+
+    <div class="form-group col-12 col-md-6">
+      <%= f.label :price, class: "mr-sm-2" %>
+      <%= f.number_field :price, class: "form-control mb-2 mr-sm-2 mb-sm-0 w-100" %>
+    </div>
+
+    <div class="form-check col-12">
+      <label class="form-check-label mr-sm-2">
+        <%= f.check_box :active, class: "form-check-input mb-2 mr-sm-2 mb-sm-0" %>
+        <%= Trip.human_attribute_name :active %>
+      </label>
+    </div>
+
+    <%= f.hidden_field :tour_id, value: @trip.tour.id %>
+
+    <div class="form-group col-12">
+      <%= f.submit submit_text, class: "btn btn-primary w-100" %>
+    </div>
+  </div>
+<% end %>

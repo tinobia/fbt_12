@@ -1,6 +1,8 @@
 <% provide :title, @tour.name %>
 
 <% content_for :action do %>
+  <%= link_to t("admin.trips.new.title"), new_admin_tour_trip_path(@tour),
+    class: "btn btn-dark align-self-center" %>
   <%= link_to t("admin.tours.edit.title"), edit_admin_tour_path(@tour),
     class: "btn btn-dark align-self-center" %>
   <%= link_to t("admin.tours.delete.action"), admin_tour_path(@tour),
@@ -10,39 +12,21 @@
 
 <div class="row">
   <div class="col-10 mx-auto bg-light m-2 pt-4">
-    <h2 class="text-center"><%= t "admin.tours.show.tour_informations" %></h2>
-    <div class="col-12">
-      <%= image_tag @tour.thumbnail.image.url, class: "img-fluid mx-auto d-block" if @tour.thumbnail.present? %>
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <%= tab_link t("admin.tours.show.tour_informations"), params[:tab], "info", true %>
+      </li>
+      <li class="nav-item">
+        <%= tab_link t("admin.trips.index.title"), params[:tab], "trips" %>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <%= tab params[:tab], "info", true do %>
+        <%= render "tour_info" %>
+      <% end %>
+      <%= tab params[:tab], "trips" do %>
+        <%= render "trip_list", trips: @trips %>
+      <% end %>
     </div>
-    <table class="table table-bordered">
-      <tbody>
-        <tr>
-          <th scope="row"><%= Tour.human_attribute_name :id %></th>
-          <td><%= @tour.id %></td>
-        </tr>
-        <tr>
-          <th scope="row"><%= Tour.human_attribute_name :name %></th>
-          <td><%= @tour.name %></td>
-        </tr>
-        <tr>
-          <th scope="row"><%= Tour.human_attribute_name :departure %></th>
-          <td><%= @tour.departure %></td>
-        </tr>
-        <tr>
-          <th scope="row"><%= Tour.human_attribute_name :arrival %></th>
-          <td><%= @tour.arrival %></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3><%= Tour.human_attribute_name :pictures %></h2>
-    <% @tour.pictures.each do |picture| %>
-      <%= image_tag picture.image.url :thumb, class: "img-thumbnail" %>
-    <% end %>
-
-    <h3><%= Tour.human_attribute_name :overview %></h2>
-    <%= @tour.overview.html_safe %>
-    <h3><%= Tour.human_attribute_name :itinerary %></h2>
-    <%= @tour.itinerary.html_safe %>
   </div>
 </div>

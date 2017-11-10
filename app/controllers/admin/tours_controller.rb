@@ -22,7 +22,10 @@ module Admin
       end
     end
 
-    def show; end
+    def show
+      @trips = @tour.trips.paginate page: params[:page],
+        per_page: Settings.per_page.trip
+    end
 
     def edit; end
 
@@ -51,7 +54,7 @@ module Admin
     def load_tour
       return if (@tour = Tour.find_by id: params[:id])
       flash[:danger] = t "shared.error_messages.tour_not_found", id: params[:id]
-      redirect_to admin_root_url
+      redirect_to admin_tours_url
     end
 
     def load_pictures

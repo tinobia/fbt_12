@@ -14,4 +14,10 @@ placeholder_path: "/images/:style/missing.png"
 per_page:
   user: 10
   tour: 10
+  trip: 10
 editor_height: 400
+lowest_star: 0
+highest_star: 5
+lowest_max_people: 0
+highest_max_people: 100
+trips_tab: "trips"

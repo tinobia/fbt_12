@@ -1,0 +1,33 @@
+<div class="col-12">
+  <%= image_tag @tour.thumbnail.image.url,
+    class: "img-fluid mx-auto d-block" if @tour.thumbnail.present? %>
+</div>
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <th scope="row"><%= Tour.human_attribute_name :id %></th>
+      <td><%= @tour.id %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= Tour.human_attribute_name :name %></th>
+      <td><%= @tour.name %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= Tour.human_attribute_name :departure %></th>
+      <td><%= @tour.departure %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= Tour.human_attribute_name :arrival %></th>
+      <td><%= @tour.arrival %></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><%= Tour.human_attribute_name :pictures %></h3>
+<% @tour.pictures.each do |picture| %>
+  <%= image_tag picture.image.url :thumb, class: "img-thumbnail" %>
+<% end %>
+<h3><%= Tour.human_attribute_name :overview %></h3>
+<%= @tour.overview.html_safe %>
+<h3><%= Tour.human_attribute_name :itinerary %></h3>
+<%= @tour.itinerary.html_safe %>
