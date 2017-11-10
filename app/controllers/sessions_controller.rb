@@ -36,9 +36,9 @@ class SessionsController < ApplicationController
   end
 
   def handle_invalid_login
-    flash.now[:danger] =
+    flash[:danger] =
       t "shared.error_messages.invalid_login_credential"
-    render :new
+    redirect_to root_url
   end
 
   def load_user

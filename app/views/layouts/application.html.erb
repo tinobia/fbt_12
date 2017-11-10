@@ -10,9 +10,12 @@
 
   <body>
     <%= render "shared/header" %>
-    <div class="container">
-      <%= render "shared/errors" %>
-      <%= yield %>
+    <div class="main" role="main">
+      <div class="wrap clearfix">
+        <%= render "shared/errors" %>
+        <%= yield %>
+      </div>
     </div>
   </body>
+  <%= render "shared/footer" %>
 </html>

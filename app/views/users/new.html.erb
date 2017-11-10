@@ -1,9 +1,1 @@
-<% provide :title, t(".title") %>
-<h1><%= t ".title" %></h1>
-
-<div class="row justify-content-md-center">
-  <div class="col col-md-6">
-    <%= render "form", submit_text: t(".create_account"),
-      form_url: signup_path %>
-  </div>
-</div>
+<%= render("form", submit_text: t(".create_account"), form_url: signup_path) %>"

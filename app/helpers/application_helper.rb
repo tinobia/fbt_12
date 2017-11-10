@@ -29,4 +29,8 @@ module ApplicationHelper
     content_tag :a, name, class: "btn btn-dark text-light btn-add-more",
       data: {association: association.to_s, content: fields}
   end
+
+  def category_roots
+    Category.roots
+  end
 end

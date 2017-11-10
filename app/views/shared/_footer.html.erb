@@ -1,0 +1,20 @@
+<footer>
+  <div class="wrap clearfix">
+    <article class="one-fourth">
+      <h3><%= t "app.title" %></h3>
+      <p><%= t "shared.address_html" %></p>
+      <p><%= t "shared.customer_support_html", number: Settings.contact_number %></p>
+      <p></p>
+    </article>
+
+    <section class="bottom">
+      <p class="copy"><%= t "shared.copyright" %></p>
+      <nav>
+        <ul>
+          <li><%= link_to t("static_pages.about.title"), about_path %></li>
+          <li><%= link_to t("static_pages.contact.title"), contact_path %></li>
+        </ul>
+      </nav>
+    </section>
+  </div>
+</footer>

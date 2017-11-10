@@ -23,9 +23,9 @@ en:
   sessions:
     new:
       title: "Login"
-      forgot_password: "(forgot password)"
-      remember_me: "Remember me"
-      new_user?: "New user?"
+      forgot_password: "Forgot password?"
+      remember_me: "Remember me next time"
+      new_user?: "Dont have an account yet?"
       sign_up_now: "Sign up now"
   password_resets:
     new:
@@ -96,9 +96,14 @@ en:
     anonymous: "Anonymous"
     back: "Back"
     save_changes: "Save changes"
+    settings: "Settings"
     delete: "Delete"
     remove: "Remove"
     add: "Add"
+    support_number: "24/7 Support number"
+    customer_support_html: "<em>P:</em> 24/7 customer support: %{number}"
+    address_html: "<em>A:</em> 1400 Pennsylvania Ave. Washington, DC"
+    copyright: "Copyright 2012 Book your travel ltd. All rights reserved"
     header:
       home: "Home"
       about: "About"
