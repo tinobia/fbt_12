@@ -1,6 +1,7 @@
 class Tour < ApplicationRecord
   attr_accessor :thumbnail_id
 
+  belongs_to :category
   has_many :pictures, dependent: :destroy
 
   validates :avg_stars,
@@ -13,6 +14,9 @@ class Tour < ApplicationRecord
   validate :valid_thumbnail
 
   after_validation :update_thumbnail
+
+  scope :under_these_categories,
+    ->(categories){where("category_id IN (#{categories})")}
 
   accepts_nested_attributes_for :pictures, allow_destroy: true,
     reject_if: :all_blank

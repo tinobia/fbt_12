@@ -7,7 +7,7 @@
     class: "btn btn-danger align-self-center" %>
 <% end %>
 <div class="row">
-  <div class="col-10 mx-auto bg-light m-2 pt-4">
+  <div class="col-12 col-md-3 bg-light m-2 pt-4">
     <h2 class="text-center"><%= t "admin.categories.show.category_informations" %></h2>
     <table class="table table-bordered">
       <tbody>
@@ -25,5 +25,9 @@
         </tr>
       </tbody>
     </table>
+  </div>
+  <div class="col-12 col-md-8 bg-light mt-2 pt-4">
+    <h2 class="text-center"><%= t "admin.tours.index.title" %></h2>
+    <%= render "admin/tours/tour_list", tours: @tours %>
   </div>
 </div>

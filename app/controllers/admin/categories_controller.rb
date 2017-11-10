@@ -2,6 +2,7 @@ module Admin
   class CategoriesController < AdminController
     before_action :load_category, except: %i(index new create)
     before_action :load_categories, except: %i(index show destroy)
+    before_action :load_tours, only: :show
 
     def index
       @roots = Category.roots
@@ -58,6 +59,12 @@ module Admin
         else
           Category.all
         end
+    end
+
+    def load_tours
+      categories = @category.self_and_descendants.map(&:id).join(",")
+      @tours = Tour.under_these_categories(categories).paginate page: params[:page],
+        per_page: Settings.per_page.tour
     end
 
     def category_params

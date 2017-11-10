@@ -3,6 +3,8 @@
   <%= link_to fa_icon("times-circle-o 2x"), admin_category_path(parent), method: :delete,
     data: {confirm: t("admin.categories.delete.confirmation")},
     class: "float-right text-danger" %>
+  <%= link_to fa_icon("pencil-square-o 2x"), edit_admin_category_path(parent),
+    class: "float-right text-dark mr-2" %>
   <% unless parent.leaf? %>
     <%= link_to fa_icon("caret-down 2x"), "#item#{parent.id}",
       data: {toggle: "collapse", target: "#item#{parent.id}"},

@@ -76,6 +76,7 @@ en:
         confirmation: "Are you sure you want to delete this tour?"
   shared:
     actions: "Actions"
+    edit: "Edit"
     anonymous: "Anonymous"
     back: "Back"
     save_changes: "Save changes"
