@@ -1,0 +1,63 @@
+<div class="content clearfix">
+  <section class="full">
+    <section class="gallery" id="crossfade">
+      <% @tour.pictures.each do |picture| %>
+        <%= image_tag picture.url %>
+      <% end %>
+    </section>
+    <nav class="inner-nav">
+      <ul>
+        <li class="availability active">
+          <%= link_to t(".availability"), "#availability" %>
+        </li>
+        <li class="description">
+          <%= link_to t(".description"), "#description" %>
+        </li>
+      </ul>
+    </nav>
+    <section id="availability" class="tab-content" style="display: block;">
+      <article>
+        <h1><%= t ".trips" %></h1>
+        <ul class="trips">
+          <% @trips.each do |trip| %>
+            <li class="full-width">
+              <span><%= t ".from_html", from: l(trip.from) %></span>
+              <span><%= t ".to_html", to: l(trip.to) %></span>
+              <span><%= t ".max_html", count: trip.max_people %></span>
+              <span><%= t ".price_html", price: number_to_currency(trip.price) %></span>
+              <%= link_to t("shared.book"), "#", class: "gradient-button" %>
+            </li>
+          <% end %>
+        </ul>
+        <% if will_paginate @trips %>
+          <div class="bottom-nav">
+            <a href="#" class="scroll-to-top"><%= t "shared.back_to_top" %></a>
+            <div class="pagination">
+              <%= will_paginate @trips, container: false %>
+            </div>
+          </div>
+        <% end %>
+      </article>
+    </section>
+    <section id="description" class="tab-content" style="display: none;">
+      <article>
+        <h1><%= Tour.human_attribute_name :departure %></h1>
+        <div class="text-wrap">
+          <h4><%= @tour.departure %></h4>
+        </div>
+        <h1><%= Tour.human_attribute_name :arrival %></h1>
+        <div class="text-wrap">
+          <h4><%= @tour.arrival %></h4>
+        </div>
+        <h1><%= Tour.human_attribute_name :overview %></h1>
+        <div class="text-wrap">
+          <%= @tour.overview.html_safe %>
+        </div>
+        <h1><%= Tour.human_attribute_name :itinerary %></h1>
+        <div class="text-wrap">
+          <%= @tour.itinerary.html_safe %>
+        </div>
+      </article>
+    </section>
+  </section>
+</div>

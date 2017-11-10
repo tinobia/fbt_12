@@ -8,6 +8,9 @@ class Trip < ApplicationRecord
                    less_than_or_equal_to: Settings.highest_max_people}
   validates :price, presence: true
   validate :total_people_smaller_than_or_equal_to_max_people
+  validate :from_is_before_to
+
+  scope :active, ->{where(active: true)}
 
   private
 
@@ -15,5 +18,11 @@ class Trip < ApplicationRecord
     return if total_people.nil? || total_people <= max_people
     errors.add :total_people,
       t("shared.error_messages.total_people_bigger_than_max_people")
+  end
+
+  def from_is_before_to
+    return if from <= to
+    errors.add :from,
+      t("shared.error_messages.is_before_to")
   end
 end

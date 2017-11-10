@@ -1,0 +1,10 @@
+<li>
+  <%= link_to category.name, category_path(category), title: category.name %>
+  <% unless category.leaf? %>
+    <ul>
+      <% category.children.each do |category| %>
+        <%= render "categories/category", category: category %>
+      <% end %>
+    </ul>
+  <% end %>
+</li>

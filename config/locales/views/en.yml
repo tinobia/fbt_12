@@ -35,6 +35,23 @@ en:
       title: "Reset password"
       password_confirmation: "Confirmation"
       update_password: "Update password"
+  tours:
+    index:
+      title: All tours
+      price_from_html: >-
+        Price per person start from <em>%{price}</em>
+    show:
+      availability: "Availability"
+      description: "Description"
+      trips: "Trips"
+      from_html: "<em>From:</em> %{from}"
+      to_html: "<em>To:</em> %{to}"
+      max_html:
+        one: "<em>Max:</em> %{count} people"
+        other: "<em>Max:</em> %{count} peoples"
+      price_html: "<em>Price:</em> %{price}"
+      no_rating: "No rating"
+      rating: "%{rate}/10"
   layouts:
     application:
       title: "Fbt12"
@@ -92,6 +109,8 @@ en:
         confirmation: "Are you sure you want to delete this trip?"
   shared:
     actions: "Actions"
+    book: "Book"
+    book_now: "Book now"
     edit: "Edit"
     anonymous: "Anonymous"
     back: "Back"
@@ -104,6 +123,8 @@ en:
     customer_support_html: "<em>P:</em> 24/7 customer support: %{number}"
     address_html: "<em>A:</em> 1400 Pennsylvania Ave. Washington, DC"
     copyright: "Copyright 2012 Book your travel ltd. All rights reserved"
+    not_available: "Not available"
+    back_to_top: "Back to top"
     header:
       home: "Home"
       about: "About"
@@ -120,7 +141,7 @@ en:
       invalid_activation_link: "Invalid activation link"
       reset_expired: "The reset token has expired!"
       can_not_be_empty: "can't be empty"
-      is_not_valid: "is not valid"
+      must_have_one_thumbnail: "number must be one"
       email_not_found:  "Email address not found"
       not_allowed_to_view: "You are not allowed to view this page."
       have_to_be_logged_in: "You have to be logged in first to view this page."
@@ -134,6 +155,7 @@ en:
       can_not_delete_trip: "Can't delete trip with id %{id}"
       can_not_be_self_or_descendants: "can't be self or descendants"
       total_people_bigger_than_max_people: "bigger than max people"
+      is_before_to: "must be before to"
     warning_messages:
       account_not_activated: "You have to activate your account before logging in."
     success_messages:

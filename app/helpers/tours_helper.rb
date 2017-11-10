@@ -15,4 +15,8 @@ module ToursHelper
       yield
     end
   end
+
+  def last_tour counter
+    ((counter + 1) % 4).zero? ? "last" : ""
+  end
 end

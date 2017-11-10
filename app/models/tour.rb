@@ -13,12 +13,11 @@ class Tour < ApplicationRecord
   validates :departure, presence: true
   validates :itinerary, presence: true
   validates :overview, presence: true
-  validate :valid_thumbnail
-
-  after_validation :update_thumbnail
+  validate :must_have_one_thumbnail
 
   scope :under_these_categories,
     ->(categories){where("category_id IN (#{categories})")}
+  scope :order_by_created_at, ->{order(created_at: :desc)}
 
   accepts_nested_attributes_for :pictures, allow_destroy: true,
     reject_if: :all_blank
@@ -27,14 +26,16 @@ class Tour < ApplicationRecord
     pictures.find_by is_thumbnail: true
   end
 
-  def valid_thumbnail
-    return if thumbnail_id.nil? || (@pic = pictures.find_by id: thumbnail_id)
-    errors.add :thumbnail, t("shared.error_messages.is_not_valid")
+  def must_have_one_thumbnail
+    return if pictures.select(&:is_thumbnail).count == 1
+    errors.add :thumbnail, t("shared.error_messages.must_have_one_thumbnail")
   end
 
-  def update_thumbnail
-    return unless @pic && errors.empty?
-    pictures.update is_thumbnail: false
-    @pic.update_attributes is_thumbnail: true
+  def active_trips
+    trips.active
+  end
+
+  def lowest_price
+    trips.minimum :price
   end
 end

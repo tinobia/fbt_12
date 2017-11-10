@@ -1,5 +1,5 @@
 <div class="col-12">
-  <%= image_tag @tour.thumbnail.image.url,
+  <%= image_tag @tour.thumbnail.url,
     class: "img-fluid mx-auto d-block" if @tour.thumbnail.present? %>
 </div>
 <table class="table table-bordered">
@@ -25,7 +25,7 @@
 
 <h3><%= Tour.human_attribute_name :pictures %></h3>
 <% @tour.pictures.each do |picture| %>
-  <%= image_tag picture.image.url :thumb, class: "img-thumbnail" %>
+  <%= image_tag picture.url :thumb, class: "img-thumbnail" %>
 <% end %>
 <h3><%= Tour.human_attribute_name :overview %></h3>
 <%= @tour.overview.html_safe %>

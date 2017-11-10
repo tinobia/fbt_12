@@ -24,14 +24,6 @@
         <%= link_to_add_fields t("shared.add"), f, :pictures %>
       </div>
 
-      <% if @pictures %>
-        <div class="form-group">
-          <%= label_tag :thumbnail_id %>
-          <%= select_tag :thumbnail_id,
-            options_for_select(@pictures, f.object.thumbnail&.id) %>
-        </div>
-      <% end %>
-
       <div class="form-group">
         <%= f.label :departure %>
         <%= f.text_field :departure, class: "form-control" %>

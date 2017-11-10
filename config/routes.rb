@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :users,               only: %i(show update)
   resources :sessions,            only: :new
   resources :password_resets,     except: %i(destroy show index)
+  resources :tours,               only: %i(index show)
+  resources :categories,          only: :show
 
   namespace :admin do
     root "main#index"

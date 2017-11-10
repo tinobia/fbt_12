@@ -30,7 +30,6 @@ module Admin
     def edit; end
 
     def update
-      @tour.thumbnail_id = params[:thumbnail_id]
       if @tour.update_attributes(tour_params)
         flash[:success] = t "shared.success_messages.changes_saved"
         redirect_to admin_tour_url(@tour)
@@ -68,7 +67,7 @@ module Admin
 
     def tour_params
       params.require(:tour).permit :name, :departure, :arrival, :category_id,
-        :itinerary, :overview, pictures_attributes: %i(id image _destroy)
+        :itinerary, :overview, pictures_attributes: %i(id image is_thumbnail _destroy)
     end
   end
 end

@@ -1,5 +1,11 @@
 <li class="pt-3 mt-2 border fields">
   <%= image_tag f.object.image.url if f.object.image.present? %>
   <%= f.file_field :image, class: "form-control-file" %>
+  <div class="form-check">
+    <%= f.label :is_thumbnail, class: "form-check-label" do %>
+      <%= f.check_box :is_thumbnail, class: "form-check-input" %>
+      <%= Picture.human_attribute_name :is_thumbnail %>
+    <% end %>
+  </div>
   <%= link_to_remove_fields t("shared.remove"), f %>
 </li>

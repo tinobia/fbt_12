@@ -1,0 +1,31 @@
+<article class="one-fourth <%= last_tour tour_counter %>">
+  <figure>
+    <%= link_to image_tag(tour.thumbnail.url(:thumb)), tour_path(tour),
+      class: "tour-thumbnails" %>
+  </figure>
+  <div class="details">
+    <h1><%= tour.name %></h1>
+    <span class="rating">
+      <% if tour.avg_stars %>
+        <%= t "tours.show.rating", rate: tour.avg_stars %>
+      <% else %>
+        <%= t "tours.show.no_rating" %>
+      <% end %>
+    </span>
+    <span class="price">
+      <% if tour.lowest_price %>
+        <%= t "tours.index.price_from_html",
+          price: number_to_currency(tour.lowest_price) %>
+      <% else %>
+        <em><%= t "shared.not_available" %></em>
+      <% end %>
+    </span>
+    <span class="address">
+      <%= Tour.human_attribute_name :departure %>: <%= tour.departure %>
+    </span>
+    <span class="address">
+      <%= Tour.human_attribute_name :arrival %>: <%= tour.arrival %>
+    </span>
+    <%= link_to t("shared.book_now"), tour_path(tour), class: "gradient-button" %>
+  </div>
+</article>
