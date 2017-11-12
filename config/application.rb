@@ -18,5 +18,6 @@ module Fbt12
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.stripe.publishable_key = "pk_test_PIP7ngIxYXkwyZTxVg7AAEp3"
   end
 end

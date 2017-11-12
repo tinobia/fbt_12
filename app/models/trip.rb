@@ -1,5 +1,6 @@
 class Trip < ApplicationRecord
   belongs_to :tour
+  has_many :booking_requests, dependent: :destroy
 
   validates :from, presence: true
   validates :to, presence: true
@@ -11,6 +12,12 @@ class Trip < ApplicationRecord
   validate :from_is_before_to
 
   scope :active, ->{where(active: true)}
+
+  delegate :name, to: :tour
+
+  def available_slot
+    max_people - total_people
+  end
 
   private
 

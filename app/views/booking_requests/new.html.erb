@@ -1,0 +1,39 @@
+<% provide :title, t(".title") %>
+<% content_for :js do %>
+  <%= stripe_javascript_tag %>
+  <%= javascript_include_tag "payment/payment", "data-turbolinks-track": "reload" %>
+<% end %>
+<div class="content clearfix">
+  <h1><%= t ".title" %></h1>
+  <%= form_for @booking_request,
+    html: {id: "booking-form", class: "booking-form"} do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <div id="card-errors" role="alert"></div>
+    <div class="f-item">
+      <label for="card-element">
+        <%= t ".credit_card" %>
+      </label>
+      <div id="card-element">
+      </div>
+    </div>
+    <div id="stripe-token"></div>
+    <%= hidden_field_tag :user_id, params[:user_id] %>
+    <%= hidden_field_tag :trip_id, params[:trip_id] %>
+    <div class="f-item">
+      <div class="clearfix">
+        <div class="one-half">
+          <%= f.label :number_of_people %>
+          <%= f.number_field :number_of_people, value: 0, min: 0,
+            max: @trip.available_slot %>
+        </div>
+        <div class="one-half last">
+          <%= label_tag :charge, t(".total_charge") %>
+          <div id="charge" data-price="<%= @trip.price %>">
+            <h2><%= number_to_currency @trip.price * @booking_request.number_of_people %></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= f.submit t("shared.book"), class: "gradient-button" %>
+  <% end %>
+</div>

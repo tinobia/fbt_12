@@ -15,6 +15,7 @@ per_page:
   user: 10
   tour: 10
   trip: 10
+  booking_requests: 10
 editor_height: 400
 lowest_star: 0
 highest_star: 5

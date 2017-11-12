@@ -1,0 +1,24 @@
+<h1><%= t "users.show.my_trips" %></h1>
+<ul class="requests">
+  <% @user.booking_requests.each do |request| %>
+    <li class="full-width">
+      <div class="thumbnail">
+        <%= image_tag request.trip.tour.thumbnail.url(:thumb) %>
+      </div>
+      <div class="description">
+        <h4><%= link_to request.trip.name, tour_url(request.trip.tour) %></h4>
+        <div class="full-width">
+          <span><%= t "users.show.from_html", from: l(request.trip.from) %></span>
+          <span><%= t "users.show.to_html", to: l(request.trip.to) %></span>
+          <span>
+            <%= t "users.show.people_html", count: request.number_of_people %>
+          </span>
+          <span>
+            <%= t "users.show.price_html",
+              price: number_to_currency(request.total_price) %>
+          </span>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
