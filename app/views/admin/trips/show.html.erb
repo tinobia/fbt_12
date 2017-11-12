@@ -53,4 +53,9 @@
       </tbody>
     </table>
   </div>
+  <div class="col-12 col-md-8 bg-light mt-2 pt-4">
+    <h2 class="text-center"><%= t "admin.booking_requests.index.title" %></h2>
+    <%= render "admin/booking_requests/booking_request_list",
+      requests: @requests %>
+  </div>
 </div>

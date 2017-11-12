@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     end
     resources :trips, only: %i(show edit update destroy)
     resources :categories
+    resources :booking_requests, except: :show
   end
 
   mount Ckeditor::Engine => "/ckeditor"

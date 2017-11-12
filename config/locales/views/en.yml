@@ -77,6 +77,8 @@ en:
     booking_requests:
       index:
         title: "Booking requests"
+      new:
+        title: "New booking request"
       show:
         booking_request_informations: "Booking request informations"
       edit:

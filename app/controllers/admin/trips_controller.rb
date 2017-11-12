@@ -17,7 +17,10 @@ module Admin
       end
     end
 
-    def show; end
+    def show
+      @requests = @trip.booking_requests.paginate page: params[:page],
+        per_page: Settings.per_page.booking_requests
+    end
 
     def edit; end
 
