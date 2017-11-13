@@ -204,6 +204,8 @@ en:
       is_before_to: "must be before to"
       must_be_smaller_than_available_slot: "must be smaller than available slot"
       booking_failed: "Booking failed"
+      like_failed: "Like failed"
+      unlike_failed: "Unlike failed"
       review_not_found: "Can't find review with id %{id}"
       review_failed: "Fail to created review"
       not_allowed: "You are not allowed to do this."

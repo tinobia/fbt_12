@@ -1,0 +1,8 @@
+<% if @error %>
+  alert('<%= j @error %>');
+<% else %>
+  App.Like.updateLike('<%= @review.id %>',
+    '<%= j render "reviews/like_count", count: @review.like_count %>');
+  App.Like.updateLikeButton('<%= @review.id %>',
+    '<%= j render "reviews/like_button", review: @review %>');
+<% end %>
