@@ -1,0 +1,28 @@
+<div class="js-review-form review-forms hidden">
+  <% if user && show_avatar %>
+    <figure class="left"><%= image_tag user.avatar.url(:thumb) %></figure>
+    <address>
+      <h2><%= user.username %></h2>
+    </address>
+  <% end %>
+  <div class="full">
+    <%= form_for review || :review, url: submit_url, remote: true do |f| %>
+      <div class="js-review-errors"></div>
+      <% if user && tour %>
+        <%= hidden_field_tag :tour_id, tour.id %>
+        <%= hidden_field_tag :user_id, user.id %>
+      <% end %>
+      <div class="f-item">
+        <%= f.label :stars %>
+        <div class="review-rate stars">
+        </div>
+      </div>
+      <div class="f-item">
+        <%= f.label :content %>
+        <%= f.text_area :content, class: "form-control" %>
+      </div>
+      <%= link_to t("shared.cancel"), "javascript:void(0)", class: "js-cancel gradient-button" %>
+      <%= f.submit submit_text, class: "js-create gradient-button" %>
+    <% end %>
+  </div>
+</div>

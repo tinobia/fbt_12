@@ -4,6 +4,7 @@ class Tour < ApplicationRecord
   belongs_to :category
   has_many :pictures, dependent: :destroy
   has_many :trips, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   validates :avg_stars,
     numericality: {greater_than: Settings.lowest_star,
@@ -37,5 +38,9 @@ class Tour < ApplicationRecord
 
   def lowest_price
     trips.minimum :price
+  end
+
+  def review_count
+    reviews.count
   end
 end

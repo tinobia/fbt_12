@@ -1,0 +1,14 @@
+<h1><%= t "users.show.my_reviews" %></h1>
+<ul class="reviews">
+  <% reviews.each do |review| %>
+    <%= render "reviews/review", review: review %>
+  <% end %>
+</ul>
+<% if will_paginate reviews %>
+  <div class="bottom-nav">
+    <a href="#" class="scroll-to-top"><%= t "shared.back_to_top" %></a>
+    <div class="pagination">
+      <%= will_paginate reviews, container: false %>
+    </div>
+  </div>
+<% end %>

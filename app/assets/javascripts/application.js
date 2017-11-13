@@ -21,4 +21,6 @@
 //= require cable
 //= require jquery.raty.min
 //= require script
+//= require rate
+//= require review
 //= require_diretory admin

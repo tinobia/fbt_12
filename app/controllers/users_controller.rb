@@ -17,7 +17,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @reviews = @user.reviews.paginate page: params[:page],
+      per_page: Settings.per_page.review
+  end
 
   def update
     if @user.update_attributes user_update_params

@@ -1,0 +1,7 @@
+<% if @review.errors.any? %>
+  App.Review.addErrors(
+    '<%= j render "shared/error_messages", object: @review %>');
+<% else %>
+  App.Review.addReview(
+    '<%= j render "reviews/review", review: @review %>');
+<% end %>
