@@ -6,12 +6,20 @@
         <li class="active">
           <%= link_to t("shared.settings"), "#MySettings", title: t("shared.settings") %>
         </li>
+        <li>
+          <%= link_to t(".my_trips"), "#MyTrips", title: t(".my_trips") %>
+        </li>
       </ul>
     </nav>
-    <section id="#MySettings" class="tab-content">
+    <section id="MySettings" class="tab-content">
       <article class="mysettings">
         <h1><%= t ".account_informations" %></h1>
         <%= render "edit_form", form_url: user_path(@user) %>
+      </article>
+    </section>
+    <section id="MyTrips" class="tab-content">
+      <article class="mysettings">
+      <%= render "trips" %>
       </article>
     </section>
   </section>

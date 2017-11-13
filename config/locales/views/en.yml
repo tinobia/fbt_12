@@ -18,8 +18,20 @@ en:
     show:
       title: "User profile"
       account_informations: "Account informations"
+      my_trips: "My trips"
+      from_html: "<em>From:</em> %{from}"
+      to_html: "<em>To:</em> %{to}"
+      people_html:
+        one: "<em>Peoples:</em> %{count} people"
+        other: "<em>Peoples:</em> %{count} peoples"
+      price_html: "<em>Price:</em> %{price}"
     edit_form:
       save_changes: "Save changes"
+  booking_requests:
+    new:
+      title: "New request"
+      total_charge: "Total charge"
+      credit_card: "Credit or debit card"
   sessions:
     new:
       title: "Login"
@@ -46,9 +58,7 @@ en:
       trips: "Trips"
       from_html: "<em>From:</em> %{from}"
       to_html: "<em>To:</em> %{to}"
-      max_html:
-        one: "<em>Max:</em> %{count} people"
-        other: "<em>Max:</em> %{count} peoples"
+      slot_html: "<em>Slots:</em> %{count}/%{max} peoples"
       price_html: "<em>Price:</em> %{price}"
       no_rating: "No rating"
       rating: "%{rate}/10"
@@ -63,6 +73,17 @@ en:
       users: "Users"
       tours: "Tours"
       categories: "Categories"
+      booking_requests: "Booking requests"
+    booking_requests:
+      index:
+        title: "Booking requests"
+      show:
+        booking_request_informations: "Booking request informations"
+      edit:
+        title: "Edit booking request"
+      destroy:
+        action: "Delete"
+        confirmation: "Are you sure you want to delete this request?"
     categories:
       index:
         title: "Categories"
@@ -153,9 +174,12 @@ en:
       can_not_delete_tour: "Can't delete tour with id %{id}"
       can_not_delete_category: "Can't delete category with id %{id}"
       can_not_delete_trip: "Can't delete trip with id %{id}"
+      can_not_delete_booking_request: "Can't delete booking request with id %{id}"
       can_not_be_self_or_descendants: "can't be self or descendants"
       total_people_bigger_than_max_people: "bigger than max people"
       is_before_to: "must be before to"
+      must_be_smaller_than_available_slot: "must be smaller than available slot"
+      booking_failed: "Booking failed"
     warning_messages:
       account_not_activated: "You have to activate your account before logging in."
     success_messages:
@@ -166,6 +190,9 @@ en:
       category_deleted: "The category was deleted"
       trip_created: "The trip was created"
       trip_deleted: "The trip was deleted"
+      booking_request_deleted: "The booking request was deleted"
+      booking_succeeded: "Booking succeeded"
+      booking_request_created: "Booking created"
     info_messages:
       check_email_notice: "Please check your email to activate your account."
       password_reset_email_sent: "Email sent with password reset instructions"

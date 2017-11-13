@@ -34,7 +34,8 @@ module Admin
       if @trip.destroy
         flash[:success] = t "shared.success_messages.trip_deleted"
       else
-        flash[:danger] = t "shared.error_messages.can_not_delete_trip"
+        flash[:danger] = t "shared.error_messages.can_not_delete_trip",
+          id: params[:id]
       end
       redirect_to admin_tour_url(@trip.tour, tab: Settings.trips_tab)
     end

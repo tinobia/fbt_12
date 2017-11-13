@@ -18,4 +18,6 @@
 //= require turbolinks
 //= require image-picker
 //= require ckeditor/init
-//= require_tree .
+//= require cable
+//= require script
+//= require_diretory admin

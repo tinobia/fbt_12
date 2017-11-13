@@ -1,6 +1,6 @@
 <div class="lightbox" style="display:block;">
   <div class="lb-wrap">
-    <a href="#" class="close">x</a>
+    <%= link_to "x", root_url, class: "close" %>
     <div class="lb-content">
       <%= form_for :session, url: login_path do |f| %>
         <h1><%= t "sessions.new.title" %></h1>

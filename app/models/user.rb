@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   attr_accessor :activation_token, :remember_token, :reset_token
 
+  has_many :booking_requests, dependent: :destroy
+
   validates :email, format: {with: VALID_EMAIL_REGEX},
     length: {maximum: Settings.max_email_length}, presence: true,
     uniqueness: {case_sensitive: false}

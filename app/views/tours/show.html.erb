@@ -23,9 +23,14 @@
             <li class="full-width">
               <span><%= t ".from_html", from: l(trip.from) %></span>
               <span><%= t ".to_html", to: l(trip.to) %></span>
-              <span><%= t ".max_html", count: trip.max_people %></span>
+              <span>
+                <%= t ".slot_html", count: trip.total_people,
+                  max: trip.max_people %>
+              </span>
               <span><%= t ".price_html", price: number_to_currency(trip.price) %></span>
-              <%= link_to t("shared.book"), "#", class: "gradient-button" %>
+              <%= link_to t("shared.book"),
+                new_booking_request_path(user_id: current_user.id, trip_id: trip.id),
+                class: "gradient-button" %>
             </li>
           <% end %>
         </ul>

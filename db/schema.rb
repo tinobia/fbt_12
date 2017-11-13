@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108082408) do
+ActiveRecord::Schema.define(version: 20171112025722) do
+
+  create_table "booking_requests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "price", default: 0
+    t.integer "number_of_people", default: 0
+    t.integer "status", default: 0
+    t.bigint "user_id"
+    t.bigint "trip_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_booking_requests_on_trip_id"
+    t.index ["user_id"], name: "index_booking_requests_on_user_id"
+  end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -91,6 +103,8 @@ ActiveRecord::Schema.define(version: 20171108082408) do
     t.datetime "avatar_updated_at"
   end
 
+  add_foreign_key "booking_requests", "trips"
+  add_foreign_key "booking_requests", "users"
   add_foreign_key "tours", "categories"
   add_foreign_key "trips", "tours"
 end
