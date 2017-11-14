@@ -1,0 +1,10 @@
+<% provide :title, t(".title") %>
+<% content_for :action do %>
+  <%= link_to t("admin.booking_requests.new.title"), new_admin_booking_request_path,
+    class: "btn btn-dark align-self-center" %>
+<% end %>
+<div class="row m-2 pt-4">
+  <div class="col">
+    <%= render "booking_request_list", requests: @requests %>
+  </div>
+</div>

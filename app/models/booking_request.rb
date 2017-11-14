@@ -19,7 +19,7 @@ class BookingRequest < ApplicationRecord
   private
 
   def process_payment
-    return if status.paid?
+    return if paid?
     customer = Stripe::Customer.create email: user.email,
       card: stripe_token
     update_attribute :price, trip.price

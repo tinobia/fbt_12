@@ -1,0 +1,36 @@
+<h2 class="text-center"><%= t "users.show.account_informations" %></h2>
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <th scope="row"><%= User.human_attribute_name :id %></th>
+      <td><%= @user.id %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= User.human_attribute_name :username %></th>
+      <td><%= @user.username %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= User.human_attribute_name :avatar %></th>
+      <td><%= image_tag current_user.avatar.url(:medium), class: "img-fluid" %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= User.human_attribute_name :email %></th>
+      <td><%= @user.email %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= User.human_attribute_name :first_name %></th>
+      <td><%= @user.first_name %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= User.human_attribute_name :last_name %></th>
+      <td><%= @user.last_name %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= User.human_attribute_name :is_admin? %></th>
+      <td>
+        <%= fa_icon "#{@user.is_admin? ? 'check' : 'times'}-circle-o 2x",
+          class: "text-#{@user.is_admin? ? 'success' : 'danger'}" %>
+      </td>
+    </tr>
+  </tbody>
+</table>

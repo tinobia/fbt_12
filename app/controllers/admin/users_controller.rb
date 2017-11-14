@@ -7,7 +7,10 @@ module Admin
         per_page: Settings.per_page.user
     end
 
-    def show; end
+    def show
+      @requests = @user.booking_requests.paginate page: params[:page],
+        per_page: Settings.per_page.booking_requests
+    end
 
     def edit; end
 

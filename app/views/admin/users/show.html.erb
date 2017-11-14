@@ -1,49 +1,26 @@
 <% provide :title, @user.username %>
-
 <% content_for :action do %>
-  <%= link_to t("admin.users.edit.title"), edit_admin_user_path(@user), class: "btn btn-dark align-self-center" %>
+  <%= link_to t("admin.users.edit.title"), edit_admin_user_path(@user),
+    class: "btn btn-dark align-self-center" %>
 <% end %>
 
 <div class="row">
   <div class="col-10 mx-auto bg-light m-2 pt-4">
-    <h2 class="text-center"><%= t "users.show.account_informations" %></h2>
-    <table class="table table-bordered">
-      <tbody>
-        <tr>
-          <th scope="row"><%= User.human_attribute_name :id %></th>
-          <td><%= @user.id %></td>
-        </tr>
-        <tr>
-          <th scope="row"><%= User.human_attribute_name :username %></th>
-          <td><%= @user.username %></td>
-        </tr>
-        <tr>
-          <th scope="row"><%= User.human_attribute_name :avatar %></th>
-          <td><%= image_tag current_user.avatar.url(:medium), class: "img-fluid" %></td>
-        </tr>
-        <tr>
-          <th scope="row"><%= User.human_attribute_name :email %></th>
-          <td><%= @user.email %></td>
-        </tr>
-        <tr>
-          <th scope="row"><%= User.human_attribute_name :first_name %></th>
-          <td><%= @user.first_name %></td>
-        </tr>
-        <tr>
-          <th scope="row"><%= User.human_attribute_name :last_name %></th>
-          <td><%= @user.last_name %></td>
-        </tr>
-        <tr>
-          <th scope="row"><%= User.human_attribute_name :is_admin? %></th>
-          <td>
-            <% if @user.is_admin? %>
-              <%= fa_icon "check-circle-o 2x", class: "text-success" %>
-            <% else %>
-              <%= fa_icon "times-circle-o 2x", class: "text-danger" %>
-            <% end %>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <%= tab_link t("users.show.account_informations"), params[:tab], "info", true %>
+      </li>
+      <li class="nav-item">
+        <%= tab_link t("admin.booking_requests.index.title"), params[:tab], "requests" %>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <%= tab params[:tab], "info", true do %>
+        <%= render "user_info" %>
+      <% end %>
+      <%= tab params[:tab], "requests" do %>
+        <%= render "admin/booking_requests/booking_request_list", requests: @requests %>
+      <% end %>
+    </div>
   </div>
 </div>
