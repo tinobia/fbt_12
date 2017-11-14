@@ -25,6 +25,8 @@
         class: "gradient-button delete-button" %>
       <%= link_to t("shared.edit"), "javascript:void(0)",
         class: "js-edit-review gradient-button right" %>
+      <%= link_to t("shared.comment"), "javascript:void(0)",
+        class: "js-comment-button gradient-button right" %>
     <% end %>
     <% if logged_in? %>
       <div class="js-like-button likes">
@@ -32,5 +34,7 @@
           review: review %>
       </div>
     <% end %>
+    <%= render "comments/comment_form", commentable: review, comment: Comment.new %>
+    <%= render "comments/comments", comments: review.comments %>
   </div>
 </li>

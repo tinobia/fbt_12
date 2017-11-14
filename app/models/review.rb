@@ -2,6 +2,7 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :tour
   has_many :likes, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
 
   validates :content, presence: true
   validates :stars, presence: true

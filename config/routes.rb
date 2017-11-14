@@ -22,6 +22,11 @@ Rails.application.routes.draw do
       post :like
       delete :unlike
     end
+    resources :comments, only: %i(new create), module: :reviews
+  end
+
+  resources :comments, only: [] do
+    resources :comments, only: %i(new create), module: :comments
   end
 
   namespace :admin do
