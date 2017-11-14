@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    if @user && @user.authenticate(session_params[:password])
+    if @user&.authenticate(session_params[:password])
       if @user.activated?
         handle_login
       else

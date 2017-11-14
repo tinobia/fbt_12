@@ -19,5 +19,6 @@
 //= require image-picker
 //= require ckeditor/init
 //= require cable
+//= require jquery.raty.min
 //= require script
 //= require_diretory admin
