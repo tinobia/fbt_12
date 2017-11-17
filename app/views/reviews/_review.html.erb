@@ -28,7 +28,7 @@
       <%= link_to t("shared.comment"), "javascript:void(0)",
         class: "js-comment-button gradient-button right" %>
     <% end %>
-    <% if logged_in? %>
+    <% if user_signed_in? %>
       <div class="js-like-button likes">
         <%= render "reviews/#{current_user.liked?(review) ? Settings.unlike : Settings.like }_button",
           review: review %>

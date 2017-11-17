@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :load_user, only: %i(update show)
-  before_action :valid_user, only: %i(update show)
+  before_action :authenticate_user!, only: %i(update show)
+  before_action :authorize_user!, only: %i(update show)
 
   def new
     @user = User.new
@@ -39,16 +40,10 @@ class UsersController < ApplicationController
     redirect_to root_url
   end
 
-  def valid_user
-    if logged_in?
-      return if current_user.is?(@user) || current_user.is_admin?
-      flash[:danger] = t "shared.error_messages.not_allowed_to_view"
-      redirect_to root_url
-    else
-      flash[:danger] = t "shared.error_messages.have_to_be_logged_in"
-      store_location
-      redirect_to login_url
-    end
+  def authorize_user!
+    return if current_user.is?(@user) || current_user.is_admin?
+    flash[:danger] = t "shared.error_messages.not_allowed_to_view"
+    redirect_to root_url
   end
 
   def user_update_params

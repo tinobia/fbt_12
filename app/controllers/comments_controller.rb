@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :check_logged_in?
+  before_action :authenticate_user!
 
   def create
     @comment = @commentable.comments.new comment_params

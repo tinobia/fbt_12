@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :load_review, except: :create
   before_action :load_tour, only: :create
-  before_action :check_logged_in?
+  before_action :authenticate_user!
   before_action :authorize_user!, only: :update
 
   def create

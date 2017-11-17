@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  include SessionsHelper
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def check_logged_in?
-    return if logged_in?
-    flash[:danger] = t "shared.error_messages.have_to_be_logged_in"
-    store_location
-    redirect_to login_url
+  protected
+
+  def configure_permitted_parameters
+    added_attrs = %i(username email password password_confirmation remember_me)
+    devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
   end
 end

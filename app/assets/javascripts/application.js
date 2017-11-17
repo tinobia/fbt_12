@@ -25,4 +25,4 @@
 //= require review
 //= require like
 //= require comment
-//= require_diretory admin
+//= require_tree ./admin

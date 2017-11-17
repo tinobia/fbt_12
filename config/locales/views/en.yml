@@ -11,6 +11,28 @@ en:
       title: "Contact"
     home:
       title: "Home"
+  devise:
+    registrations:
+      new:
+        minimum_password_length: "(%{length} characters minimum)"
+    sessions:
+      new:
+        title: "Login"
+        remember_me: "Remember me next time"
+    passwords:
+      new:
+        title: "Forgot password"
+        submit: "Submit"
+      edit:
+        title: "Reset password"
+        password_confirmation: "Confirmation"
+        update_password: "Update password"
+    shared:
+      links:
+        log_in: "Log in"
+        sign_up: "Sign up"
+        forgot_password?: "Forgot your password?"
+        did_not_receive_confirmation: "Didn't receive confirmation instructions?"
   users:
     new:
       title: "Sign up"
@@ -33,21 +55,6 @@ en:
       title: "New request"
       total_charge: "Total charge"
       credit_card: "Credit or debit card"
-  sessions:
-    new:
-      title: "Login"
-      forgot_password: "Forgot password?"
-      remember_me: "Remember me next time"
-      new_user?: "Dont have an account yet?"
-      sign_up_now: "Sign up now"
-  password_resets:
-    new:
-      title: "Forgot password"
-      submit: "Submit"
-    edit:
-      title: "Reset password"
-      password_confirmation: "Confirmation"
-      update_password: "Update password"
   tours:
     index:
       title: All tours
@@ -171,6 +178,7 @@ en:
     copyright: "Copyright 2012 Book your travel ltd. All rights reserved"
     not_available: "Not available"
     back_to_top: "Back to top"
+    password: "Password"
     header:
       home: "Home"
       about: "About"
