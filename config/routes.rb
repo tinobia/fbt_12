@@ -16,7 +16,13 @@ Rails.application.routes.draw do
   resources :password_resets,     except: %i(destroy show index)
   resources :tours,               only: %i(index show)
   resources :categories,          only: :show
-  resources :reviews,             only: %i(create update destroy)
+
+  resources :reviews, only: %i(create update destroy) do
+    member do
+      post :like
+      delete :unlike
+    end
+  end
 
   namespace :admin do
     root "main#index"

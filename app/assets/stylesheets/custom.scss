@@ -242,6 +242,16 @@ $cyan-light: #40BFB8;
       height: 64px;
     }
   }
+
+  .likes {
+    float: right;
+    margin-right: 10px;
+
+    i {
+      line-height: 30px;
+      color: $cyan-light;
+    }
+  }
 }
 
 .stars {

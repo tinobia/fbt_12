@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :load_review, only: %i(update destroy)
+  before_action :load_review, except: :create
   before_action :load_tour, only: :create
   before_action :check_logged_in?
   before_action :authorize_user!, only: :update
@@ -17,6 +17,16 @@ class ReviewsController < ApplicationController
     return if @review.destroy
     @error =
       t "shared.error_messages.can_not_delete_review", params[:id]
+  end
+
+  def like
+    return if @review.like_by current_user
+    @error = t "shared.error_messages.like_failed"
+  end
+
+  def unlike
+    return if @review.unlike_by current_user
+    @error = t "shared.error_messages.unlike_failed"
   end
 
   private

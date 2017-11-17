@@ -23,4 +23,5 @@
 //= require script
 //= require rate
 //= require review
+//= require like
 //= require_diretory admin

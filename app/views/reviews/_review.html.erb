@@ -4,6 +4,9 @@
     <address>
       <span><%= review.username %></span><br>
       <%= l review.created_at %>
+      <div class="js-like-count like-count">
+        <%= render "reviews/like_count", count: review.like_count %>
+      </div>
       <div class="review-rate stars" data-score="<%= review.stars %>"
         data-read-only="true">
       </div>
@@ -22,6 +25,12 @@
         class: "gradient-button delete-button" %>
       <%= link_to t("shared.edit"), "javascript:void(0)",
         class: "js-edit-review gradient-button right" %>
+    <% end %>
+    <% if logged_in? %>
+      <div class="js-like-button likes">
+        <%= render "reviews/#{current_user.liked?(review) ? Settings.unlike : Settings.like }_button",
+          review: review %>
+      </div>
     <% end %>
   </div>
 </li>
