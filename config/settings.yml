@@ -9,6 +9,7 @@ forget_me: "forget"
 reset_expired: 2
 default_gravatar_size: 80
 medium_image_size: "300x300>"
+avatar_thumb_image_size: "150x150>"
 thumb_image_size: "270x152>"
 placeholder_path: "/images/:style/missing.png"
 per_page:
@@ -16,9 +17,10 @@ per_page:
   tour: 10
   trip: 10
   booking_requests: 10
+  review: 10
 editor_height: 400
 lowest_star: 0
-highest_star: 5
+highest_star: 10
 lowest_max_people: 0
 highest_max_people: 100
 trips_tab: "trips"

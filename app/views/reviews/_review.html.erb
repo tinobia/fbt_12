@@ -1,0 +1,27 @@
+<li class="js-review" data-id="<%= review.id %>">
+  <figure class="left"><%= image_tag review.user_avatar.url(:thumb) %></figure>
+  <div>
+    <address>
+      <span><%= review.username %></span><br>
+      <%= l review.created_at %>
+      <div class="review-rate stars" data-score="<%= review.stars %>"
+        data-read-only="true">
+      </div>
+    </address>
+    <div><%= review.content.html_safe %></div>
+    <%= render "reviews/review_form",
+      submit_url: review_url(review),
+      submit_text: t("shared.save_changes"),
+      review: review,
+      tour: review.tour,
+      user: current_user,
+      show_avatar: false %>
+    <% if review.user.is? current_user %>
+      <%= link_to t("shared.delete"), review_url(review), remote: true,
+        method: :delete,
+        class: "gradient-button delete-button" %>
+      <%= link_to t("shared.edit"), "javascript:void(0)",
+        class: "js-edit-review gradient-button right" %>
+    <% end %>
+  </div>
+</li>

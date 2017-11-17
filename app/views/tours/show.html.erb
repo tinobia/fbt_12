@@ -13,6 +13,9 @@
         <li class="description">
           <%= link_to t(".description"), "#description" %>
         </li>
+        <li class="reviews">
+          <%= link_to t(".reviews"), "#reviews" %>
+        </li>
       </ul>
     </nav>
     <section id="availability" class="tab-content" style="display: block;">
@@ -28,9 +31,11 @@
                   max: trip.max_people %>
               </span>
               <span><%= t ".price_html", price: number_to_currency(trip.price) %></span>
-              <%= link_to t("shared.book"),
-                new_booking_request_path(user_id: current_user.id, trip_id: trip.id),
-                class: "gradient-button" %>
+              <% if logged_in? %>
+                <%= link_to t("shared.book"),
+                  new_booking_request_path(user_id: current_user.id, trip_id: trip.id),
+                  class: "gradient-button" %>
+              <% end %>
             </li>
           <% end %>
         </ul>
@@ -63,6 +68,40 @@
           <%= @tour.itinerary.html_safe %>
         </div>
       </article>
+    </section>
+    <section id="reviews" class="tab-content" style="display: none;">
+      <article>
+        <h1><%= t ".score_breakdown"%></h1>
+        <div class="score">
+          <%= t ".score_html", score: @tour.avg_stars %>
+          <p class="info"><%= t ".based_on", count: @tour.review_count %></p>
+        </div>
+
+        <dl class="chart">
+        </dl>
+      </article>
+      <article>
+        <h1><%= t ".reviews" %></h1>
+        <ul class="reviews js-review-list">
+          <% @tour.reviews.each do |review| %>
+            <%= render "reviews/review", review: review %>
+          <% end %>
+        </ul>
+      </article>
+      <% if logged_in? %>
+        <article class="js-new-review">
+          <h1><%= t ".new_review" %></h1>
+          <%= render "reviews/review_form",
+            submit_url: reviews_url,
+            submit_text: t("shared.create"),
+            review: nil,
+            tour: @tour,
+            show_avatar: true,
+            user: current_user %>
+          <%= link_to t(".new_review"), "javascript:void(0)",
+            class: "js-new-review gradient-button right" %>
+        </article>
+      <% end %>
     </section>
   </section>
 </div>

@@ -19,6 +19,7 @@ en:
       title: "User profile"
       account_informations: "Account informations"
       my_trips: "My trips"
+      my_reviews: "My reviews"
       from_html: "<em>From:</em> %{from}"
       to_html: "<em>To:</em> %{to}"
       people_html:
@@ -62,6 +63,17 @@ en:
       price_html: "<em>Price:</em> %{price}"
       no_rating: "No rating"
       rating: "%{rate}/10"
+      new_review: "New review"
+      reviews: "Reviews"
+      score_breakdown: "Hotel Score and Score Breakdown"
+      score_html: >-
+        <span class="achieved">%{score} </span>
+        <span> / 10</span>
+      based_on:
+        one: "Based on %{count} review"
+        other: "Based on %{count} reviews"
+    review_form:
+      new_review: "New review"
   layouts:
     application:
       title: "Fbt12"
@@ -134,6 +146,8 @@ en:
     actions: "Actions"
     book: "Book"
     book_now: "Book now"
+    cancel: "Cancel"
+    create: "Create"
     edit: "Edit"
     anonymous: "Anonymous"
     back: "Back"
@@ -177,11 +191,15 @@ en:
       can_not_delete_category: "Can't delete category with id %{id}"
       can_not_delete_trip: "Can't delete trip with id %{id}"
       can_not_delete_booking_request: "Can't delete booking request with id %{id}"
+      can_not_delete_review: "Can't delete review with id %{id}"
       can_not_be_self_or_descendants: "can't be self or descendants"
       total_people_bigger_than_max_people: "bigger than max people"
       is_before_to: "must be before to"
       must_be_smaller_than_available_slot: "must be smaller than available slot"
       booking_failed: "Booking failed"
+      review_not_found: "Can't find review with id %{id}"
+      review_failed: "Fail to created review"
+      not_allowed: "You are not allowed to do this."
     warning_messages:
       account_not_activated: "You have to activate your account before logging in."
     success_messages:
@@ -195,6 +213,8 @@ en:
       booking_request_deleted: "The booking request was deleted"
       booking_succeeded: "Booking succeeded"
       booking_request_created: "Booking created"
+      review_created: "The review was created"
+      review_deleted: "The review was deleted"
     info_messages:
       check_email_notice: "Please check your email to activate your account."
       password_reset_email_sent: "Email sent with password reset instructions"

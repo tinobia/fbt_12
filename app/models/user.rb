@@ -4,6 +4,7 @@ class User < ApplicationRecord
   attr_accessor :activation_token, :remember_token, :reset_token
 
   has_many :booking_requests, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   validates :email, format: {with: VALID_EMAIL_REGEX},
     length: {maximum: Settings.max_email_length}, presence: true,
@@ -23,7 +24,7 @@ class User < ApplicationRecord
   has_secure_password
 
   has_attached_file :avatar, styles: {medium: Settings.medium_image_size,
-                                      thumb: Settings.thumb_image_size},
+                                      thumb: Settings.avatar_thumb_image_size},
     default_url: Settings.placeholder_path
   validates_attachment_content_type :avatar, content_type: %r{\Aimage/.*\z}
 

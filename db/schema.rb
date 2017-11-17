@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112025722) do
+ActiveRecord::Schema.define(version: 20171112164433) do
 
   create_table "booking_requests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "price", default: 0
@@ -54,6 +54,17 @@ ActiveRecord::Schema.define(version: 20171112025722) do
     t.datetime "updated_at", null: false
     t.boolean "is_thumbnail"
     t.index ["tour_id"], name: "index_pictures_on_tour_id"
+  end
+
+  create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "stars"
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "tour_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tour_id"], name: "index_reviews_on_tour_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "tours", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -105,6 +116,8 @@ ActiveRecord::Schema.define(version: 20171112025722) do
 
   add_foreign_key "booking_requests", "trips"
   add_foreign_key "booking_requests", "users"
+  add_foreign_key "reviews", "tours"
+  add_foreign_key "reviews", "users"
   add_foreign_key "tours", "categories"
   add_foreign_key "trips", "tours"
 end

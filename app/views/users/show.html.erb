@@ -9,6 +9,9 @@
         <li>
           <%= link_to t(".my_trips"), "#MyTrips", title: t(".my_trips") %>
         </li>
+        <li>
+          <%= link_to t(".my_reviews"), "#MyReviews", title: t(".my_reviews") %>
+        </li>
       </ul>
     </nav>
     <section id="MySettings" class="tab-content">
@@ -20,6 +23,11 @@
     <section id="MyTrips" class="tab-content">
       <article class="mysettings">
       <%= render "trips" %>
+      </article>
+    </section>
+    <section id="MyReviews" class="tab-content">
+      <article class="mysettings">
+        <%= render "reviews", reviews: @reviews %>
       </article>
     </section>
   </section>
