@@ -25,6 +25,8 @@ module Admin
     def show
       @trips = @tour.trips.paginate page: params[:page],
         per_page: Settings.per_page.trip
+      @reviews = @tour.reviews.paginate page: params[:page],
+        per_page: Settings.per_page.review
     end
 
     def edit; end

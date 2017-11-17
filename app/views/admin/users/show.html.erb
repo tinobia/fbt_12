@@ -13,6 +13,9 @@
       <li class="nav-item">
         <%= tab_link t("admin.booking_requests.index.title"), params[:tab], "requests" %>
       </li>
+      <li class="nav-item">
+        <%= tab_link t("admin.reviews.index.title"), params[:tab], "reviews" %>
+      </li>
     </ul>
     <div class="tab-content">
       <%= tab params[:tab], "info", true do %>
@@ -20,6 +23,9 @@
       <% end %>
       <%= tab params[:tab], "requests" do %>
         <%= render "admin/booking_requests/booking_request_list", requests: @requests %>
+      <% end %>
+      <%= tab params[:tab], "reviews" do %>
+        <%= render "admin/reviews/review_list", reviews: @reviews %>
       <% end %>
     </div>
   </div>

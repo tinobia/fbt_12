@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112164433) do
+ActiveRecord::Schema.define(version: 20171113085324) do
 
   create_table "booking_requests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "price", default: 0
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20171112164433) do
     t.string "name"
     t.string "departure"
     t.string "arrival"
-    t.decimal "avg_stars", precision: 2, scale: 1
+    t.decimal "avg_stars", precision: 3, scale: 1
     t.text "itinerary"
     t.text "overview"
     t.datetime "created_at", null: false

@@ -1,0 +1,38 @@
+<% provide :title, "##{@review.id}" %>
+
+<% content_for :action do %>
+  <%= link_to t("shared.delete"),
+    admin_review_path(@review),
+    method: :delete,
+    data: {confirm: t("admin.reviews.destroy.confirmation")},
+    class: "btn btn-danger align-self-center" %>
+<% end %>
+
+<div class="row">
+  <div class="col-10 mx-auto bg-light m-2 pt-4">
+    <h1 class="text-center"><%= t ".review_informations" %></h1>
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <th scope="row"><%= Review.human_attribute_name :id %></th>
+          <td><%= @review.id %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= Review.human_attribute_name :user %></th>
+          <td>
+            <%= link_to @review.user.username, admin_user_path(@review.user) %>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"><%= Review.human_attribute_name :tour %></th>
+          <td>
+          <%= link_to @review.tour.name, admin_tour_path(@review.tour) %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3><%= Review.human_attribute_name :content %></h3>
+    <%= @review.content.html_safe %>
+  </div>
+</div>

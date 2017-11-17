@@ -1,0 +1,37 @@
+<table class="table table-hover table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col"><%= BookingRequest.human_attribute_name :id %></th>
+      <th scope="col"><%= BookingRequest.human_attribute_name :tour %></th>
+      <th scope="col"><%= BookingRequest.human_attribute_name :user %></th>
+      <th scope="col"><%= BookingRequest.human_attribute_name :stars %></th>
+      <th scope="col"><%= t "shared.actions" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% reviews.each do |review| %>
+      <tr>
+        <th scope="row">
+          <%= link_to review.id, admin_review_path(review) %>
+        </th>
+        <td>
+          <%= link_to review.tour.name, admin_tour_path(review.tour) %>
+        </td>
+        <td><%= link_to review.user.username, admin_user_path(review.user) %></td>
+        <td><%= review.stars %></td>
+        <td>
+          <%= link_to t("shared.delete"),
+            admin_review_path(review),
+            method: :delete,
+            data: {confirm: t("admin.reviews.destroy.confirmation")},
+            class: "btn btn-danger align-self-center" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% if will_paginate reviews %>
+  <div class="pagination justify-content-center">
+    <%= will_paginate reviews, container: false %>
+  </div>
+<% end %>

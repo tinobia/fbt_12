@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :trips, only: %i(show edit update destroy)
     resources :categories
     resources :booking_requests, except: :show
+    resources :reviews, only: %i(show destroy)
   end
 
   mount Ckeditor::Engine => "/ckeditor"

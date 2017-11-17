@@ -10,6 +10,8 @@ module Admin
     def show
       @requests = @user.booking_requests.paginate page: params[:page],
         per_page: Settings.per_page.booking_requests
+      @reviews = @user.reviews.paginate page: params[:page],
+        per_page: Settings.per_page.review
     end
 
     def edit; end
