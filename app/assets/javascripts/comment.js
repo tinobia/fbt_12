@@ -10,8 +10,8 @@ App.Comment = function() {
 
   $(document).on('click', '.js-comment-button', (e) => {
     e.preventDefault();
-    $('.js-comment-form:not([class*="hide"])').toggleClass('hide');
-    $(e.target).siblings('.js-comment-form').toggleClass('hide');
+    $('.js-form:not([class*="hide"])').addClass('hide');
+    $(e.target).parent().siblings('.js-comment-form').toggleClass('hide');
   });
 
   $(document).on('click', '.js-comment-cancel', (e) => {

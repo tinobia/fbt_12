@@ -3,26 +3,26 @@ App.Review = function() {
     CKEDITOR.replace(this);
   });
 
-  $('a.js-new-review').on('click', (e) => {
+  $(document).on('click', 'a.js-new-review', (e) => {
     e.preventDefault();
-    $(".js-review-form:not([class*='hidden'])").addClass('hidden');
-    $('.js-new-review .js-review-form').toggleClass('hidden');
+    $('.js-form:not([class*="hide"])').addClass('hide');
+    $('.js-new-review .js-review-form').toggleClass('hide');
   });
 
   $(document).on('click', 'a.js-edit-review', (e) => {
     e.preventDefault();
-    $(".js-review-form:not([class*='hidden'])").addClass('hidden');
-    $(e.target).siblings('.js-review-form').toggleClass('hidden');
+    $('.js-form:not([class*="hide"])').addClass('hide');
+    $(e.target).parent().siblings('.js-review-form').toggleClass('hide');
   });
 
   $(document).on('click', '.js-review-form .js-cancel', (e) => {
     e.preventDefault();
-    $(e.target).closest('.js-review-form').toggleClass('hidden');
+    $(e.target).closest('.js-review-form').toggleClass('hide');
   });
 };
 
 App.Review.addReview = (review) => {
-  $('.js-new-review .js-review-form').toggleClass('hidden');
+  $('.js-new-review .js-review-form').toggleClass('hide');
   var $review = $(review);
   $('.js-review-list').append($review);
   $review.find('textarea').each(function() {
@@ -48,8 +48,13 @@ App.Review.updateReview = (reviewId, review) => {
   new App.Rate();
 };
 
+App.Review.updateReviews = (reviews) => {
+  $('.js-reviews').replaceWith(reviews);
+  new App.Rate();
+}
+
 $(document).on('turbolinks:load', () => {
   var page = $('body').data('page');
-  if (page !== 'tours:show') return;
+  if (page !== 'tours:show' && page !== 'users:show') return;
   new App.Review();
 });

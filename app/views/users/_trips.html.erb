@@ -1,6 +1,5 @@
-<h1><%= t "users.show.my_trips" %></h1>
-<ul class="requests">
-  <% @user.booking_requests.each do |request| %>
+<ul class="requests js-requests">
+  <% @booking_requests.each do |request| %>
     <li class="full-width">
       <div class="thumbnail">
         <%= image_tag request.trip.tour.thumbnail.url(:thumb) %>
@@ -21,4 +20,6 @@
       </div>
     </li>
   <% end %>
+  <%= paginate @booking_requests, remote: true, theme: Settings.themes.user,
+    param_name: :request_page %>
 </ul>

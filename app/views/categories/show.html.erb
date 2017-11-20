@@ -2,13 +2,6 @@
   <h1><%= @category.name %></h1>
   <div class="deals clearfix">
     <%= render partial: "tours/tour", collection: @tours %>
-    <% if will_paginate @tours %>
-      <div class="bottom-nav">
-        <a href="#" class="scroll-to-top"><%= t "shared.back_to_top" %></a>
-        <div class="pagination">
-          <%= will_paginate @tours, container: false %>
-        </div>
-      </div>
-    <% end %>
+    <%= paginate @tours, theme: Settings.themes.user %>
   </div>
 </section>

@@ -19,21 +19,23 @@
       tour: review.tour,
       user: current_user,
       show_avatar: false %>
-    <% if review.user.is? current_user %>
-      <%= link_to t("shared.delete"), review_url(review), remote: true,
-        method: :delete,
-        class: "gradient-button delete-button" %>
-      <%= link_to t("shared.edit"), "javascript:void(0)",
-        class: "js-edit-review gradient-button right" %>
-      <%= link_to t("shared.comment"), "javascript:void(0)",
-        class: "js-comment-button gradient-button right" %>
-    <% end %>
-    <% if user_signed_in? %>
-      <div class="js-like-button likes">
-        <%= render "reviews/#{current_user.liked?(review) ? Settings.unlike : Settings.like }_button",
-          review: review %>
-      </div>
-    <% end %>
+    <div class="actions">
+      <% if review.user.is? current_user %>
+        <%= link_to t("shared.delete"), review_url(review), remote: true,
+          method: :delete,
+          class: "gradient-button delete-button right" %>
+        <%= link_to t("shared.edit"), "javascript:void(0)",
+          class: "js-edit-review gradient-button right" %>
+      <% end %>
+      <% if user_signed_in? %>
+        <%= link_to t("shared.comment"), "javascript:void(0)",
+          class: "js-comment-button gradient-button right" %>
+        <div class="js-like-button likes">
+          <%= render "reviews/#{current_user.liked?(review) ? Settings.unlike : Settings.like }_button",
+            review: review %>
+        </div>
+      <% end %>
+    </div>
     <%= render "comments/comment_form", commentable: review, comment: Comment.new %>
     <%= render "comments/comments", comments: review.comments %>
   </div>

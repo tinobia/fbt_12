@@ -23,6 +23,8 @@
 //= require script
 //= require rate
 //= require review
+//= require request
+//= require trip
 //= require like
 //= require comment
 //= require_tree ./admin

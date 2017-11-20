@@ -19,8 +19,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @reviews = @user.reviews.paginate page: params[:page],
-      per_page: Settings.per_page.review
+    @reviews = @user.reviews.order_by_created_at.page(params[:review_page])
+      .per Settings.per_page.review
+    @booking_requests = @user.booking_requests.order_by_created_at
+      .page(params[:request_page]).per Settings.per_page.booking_request
   end
 
   def update
