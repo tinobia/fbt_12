@@ -33,6 +33,7 @@ en:
         sign_up: "Sign up"
         forgot_password?: "Forgot your password?"
         did_not_receive_confirmation: "Didn't receive confirmation instructions?"
+        sign_in_with: "Sign in with %{provider}"
   users:
     new:
       title: "Sign up"
