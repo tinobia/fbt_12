@@ -8,16 +8,12 @@ class Review < ApplicationRecord
   validates :stars, presence: true
 
   after_save :update_avg_stars
+  after_destroy ->{update_avg_stars true}
 
   scope :order_by_created_at, ->{order(created_at: :desc)}
 
   delegate :username, to: :user
   delegate :avatar, to: :user, prefix: true
-
-  def update_avg_stars
-    return unless saved_change_to_stars?
-    tour.update_attributes avg_stars: tour.reviews.average(:stars)
-  end
 
   def like_count
     likes.size
@@ -31,5 +27,12 @@ class Review < ApplicationRecord
 
   def unlike_by user
     likes.of_user(user).destroy_all.size.positive?
+  end
+
+  private
+
+  def update_avg_stars destroyed
+    return unless destroyed || saved_change_to_stars?
+    tour.update_attributes avg_stars: tour.reviews.average(:stars)
   end
 end

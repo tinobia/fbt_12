@@ -16,6 +16,17 @@ class BookingRequestsController < ApplicationController
     else
       render :new
     end
+  rescue Stripe::CardError => e
+    body = e.json_body
+    err = body[:error]
+    flash[:danger] = t "shared.error_messages.charge_declined",
+      message: err[:message]
+    render :new
+  rescue Stripe::RateLimitError, Stripe::InvalidRequestError,
+         Stripe::AuthenticationError, Stripe::APIConnectionError,
+         Stripe::StripeError
+    flash[:danger] = t "shared.error_messages.unexpected_error"
+    render :new
   end
 
   private
