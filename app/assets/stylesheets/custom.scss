@@ -106,7 +106,7 @@ $cyan-light: #40BFB8;
 }
 
 /* password */
-.password-form, .booking-form, .review-forms {
+.password-form, .booking-form, .review-forms, .comment-forms {
   .f-item {
     padding-bottom: 12px;
   }
@@ -258,4 +258,17 @@ $cyan-light: #40BFB8;
   img {
     float: left;
   }
+}
+
+/* comments */
+.comments {
+  margin: 65px 10px 10px 40px;
+  .comment {
+    padding: 10px 10px;
+    background: $gray-200;
+  }
+}
+
+.hide {
+  display: none;
 }

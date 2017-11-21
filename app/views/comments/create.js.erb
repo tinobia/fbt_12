@@ -1,0 +1,16 @@
+<% if @comment.errors.any? %>
+  App.Comment.addErrors(
+    '<%= j @comment.commentable_type.downcase %>',
+    '<%= @comment.commentable_id %>',
+    '<%= j render "shared/error_messages", object: @comment %>');
+<% elsif @commentable.comments.count == 1 %>
+  App.Comment.updateComments(
+    '<%= j @comment.commentable_type.downcase %>',
+    '<%= @comment.commentable_id %>',
+    '<%= j render "comments/comments", comments: @commentable.comments %>');
+<% else %>
+  App.Comment.addComment(
+    '<%= j @comment.commentable_type.downcase %>',
+    '<%= @comment.commentable_id %>',
+    '<%= j render "comments/comment", comment: @comment %>');
+<% end %>

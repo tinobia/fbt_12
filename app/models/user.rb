@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :booking_requests, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :email, format: {with: VALID_EMAIL_REGEX},
     length: {maximum: Settings.max_email_length}, presence: true,

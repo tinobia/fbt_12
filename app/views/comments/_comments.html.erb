@@ -1,0 +1,10 @@
+<div class="js-comments">
+  <% if comments.count > 0 %>
+    <%= link_to t("shared.show_comments"), "javascript:void(0)", class: "toggle-comments" %>
+  <% end %>
+  <ul class="comments hide">
+    <% comments.each do |comment| %>
+      <%= render "comments/comment", comment: comment %>
+    <% end %>
+  </ul>
+</div>

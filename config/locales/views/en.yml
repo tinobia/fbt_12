@@ -155,6 +155,8 @@ en:
     book_now: "Book now"
     cancel: "Cancel"
     create: "Create"
+    comment: "Comment"
+    show_comments: "Show comments"
     edit: "Edit"
     anonymous: "Anonymous"
     back: "Back"
@@ -191,7 +193,9 @@ en:
       have_to_be_logged_in: "You have to be logged in first to view this page."
       user_not_found: "Can't find user with id %{id}"
       tour_not_found: "Can't find tour with id %{id}"
+      review_not_found: "Can't find review with id %{id}"
       category_not_found: "Can't find category with id %{id}"
+      comment_not_found: "Can't find comment with id %{id}"
       trip_not_found: "Can't find trip with id %{id}"
       invalid_login_credential: "Wrong username/password combination"
       can_not_delete_tour: "Can't delete tour with id %{id}"
@@ -209,6 +213,7 @@ en:
       review_not_found: "Can't find review with id %{id}"
       review_failed: "Fail to created review"
       not_allowed: "You are not allowed to do this."
+      comment_failed: "Fail to created comment"
     warning_messages:
       account_not_activated: "You have to activate your account before logging in."
     success_messages:

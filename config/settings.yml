@@ -19,6 +19,7 @@ per_page:
   booking_requests: 10
   review: 10
 editor_height: 400
+small_editor_height: 200
 lowest_star: 0
 highest_star: 10
 lowest_max_people: 0

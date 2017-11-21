@@ -1,0 +1,14 @@
+<li class="js-comment comment" data-id="<%= comment.id %>">
+  <figure class="left"><%= image_tag comment.user_avatar.url(:thumb) %></figure>
+  <div>
+    <address>
+      <span><%= comment.username %></span><br>
+      <%= l comment.created_at %>
+    </address>
+    <div><%= comment.content.html_safe %></div>
+    <%= link_to t("shared.comment"), "javascript:void(0)",
+      class: "js-comment-button gradient-button right" if logged_in? %>
+    <%= render "comments/comment_form", commentable: comment, comment: Comment.new %>
+    <%= render "comments/comments", comments: comment.comments %>
+  </div>
+</li>
