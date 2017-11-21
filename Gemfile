@@ -16,6 +16,7 @@ gem "image-picker-rails",       "~> 0.2.4"
 gem "jbuilder",                 "~> 2.5"
 gem "jquery-rails",             "~> 4.3.1"
 gem "jquery-ui-rails",          "~> 6.0.1"
+gem "kaminari",                 "~> 1.1.1"
 gem "mysql2",                   ">= 0.3.18", "< 0.5"
 gem "omniauth-facebook",        "~> 4.0.0"
 gem "omniauth-google-oauth2",   "~> 0.5.2"
@@ -28,7 +29,6 @@ gem "sass-rails",               "~> 5.0"
 gem "stripe-rails",             "~> 1.1.2"
 gem "turbolinks",               "~> 5"
 gem "uglifier",                 ">= 1.3.0"
-gem "will_paginate",            "~> 3.1.0"
 
 group :development, :test do
   gem "byebug", platforms: %i(mri mingw x64_mingw)
