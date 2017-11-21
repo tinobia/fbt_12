@@ -1,8 +1,7 @@
 module ToursHelper
   def tab_link text, current_tab, tab, is_default = false
     default = current_tab.nil? && is_default
-    link_to text, "##{tab}",
-      data: {toggle: "tab"},
+    link_to text, request.params.merge(tab: tab),
       class: "nav-link #{current_tab == tab || default ? 'active' : ''}",
       role: "tab"
   end

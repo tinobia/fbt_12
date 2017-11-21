@@ -30,8 +30,4 @@
     <% end %>
   </tbody>
 </table>
-<% if will_paginate reviews %>
-  <div class="pagination justify-content-center">
-    <%= will_paginate reviews, container: false %>
-  </div>
-<% end %>
+<%= paginate reviews, param_name: :review_page %>

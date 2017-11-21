@@ -36,8 +36,4 @@
     <% end %>
   </tbody>
 </table>
-<% if will_paginate requests %>
-  <div class="pagination justify-content-center">
-    <%= will_paginate requests, container: false %>
-  </div>
-<% end %>
+<%= paginate requests, param_name: :request_page %>

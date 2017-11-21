@@ -9,8 +9,8 @@ module Admin
     end
 
     def index
-      @tours = Tour.paginate page: params[:page],
-        per_page: Settings.per_page.tour
+      @tours = Tour.order_by_created_at.page(params[:page])
+        .per Settings.per_page.tour
     end
 
     def create
@@ -23,10 +23,10 @@ module Admin
     end
 
     def show
-      @trips = @tour.trips.paginate page: params[:page],
-        per_page: Settings.per_page.trip
-      @reviews = @tour.reviews.paginate page: params[:page],
-        per_page: Settings.per_page.review
+      @trips = @tour.trips.order_by_created_at.page(params[:trip_page])
+        .per Settings.per_page.trip
+      @reviews = @tour.reviews.order_by_created_at.page(params[:review_page])
+        .per Settings.per_page.review
     end
 
     def edit; end

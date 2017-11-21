@@ -40,8 +40,4 @@
     <% end %>
   </tbody>
 </table>
-<% if will_paginate trips %>
-  <div class="pagination justify-content-center">
-    <%= will_paginate trips, container: false %>
-  </div>
-<% end %>
+<%= paginate trips, param_name: :trip_page %>

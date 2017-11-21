@@ -5,6 +5,8 @@ class Comment < ApplicationRecord
 
   validates :content, presence: true
 
+  scope :order_by_created_at, ->{order(created_at: :desc)}
+
   delegate :avatar, to: :user, prefix: true
   delegate :username, to: :user
 

@@ -63,8 +63,8 @@ module Admin
 
     def load_tours
       categories = @category.self_and_descendants.map(&:id).join(",")
-      @tours = Tour.under_these_categories(categories).paginate page: params[:page],
-        per_page: Settings.per_page.tour
+      @tours = Tour.under_these_categories(categories).order_by_created_at
+        .page(params[:page]).per Settings.per_page.tour
     end
 
     def category_params

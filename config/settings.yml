@@ -14,8 +14,10 @@ per_page:
   user: 10
   tour: 10
   trip: 10
-  booking_requests: 10
+  booking_request: 10
   review: 10
+themes:
+  user: 'user'
 editor_height: 400
 small_editor_height: 200
 lowest_star: 0

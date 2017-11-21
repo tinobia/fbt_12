@@ -9,6 +9,8 @@ class Review < ApplicationRecord
 
   after_save :update_avg_stars
 
+  scope :order_by_created_at, ->{order(created_at: :desc)}
+
   delegate :username, to: :user
   delegate :avatar, to: :user, prefix: true
 
@@ -28,6 +30,6 @@ class Review < ApplicationRecord
   end
 
   def unlike_by user
-    likes.of_user(user).destroy_all.empty?
+    likes.of_user(user).destroy_all.size.positive?
   end
 end

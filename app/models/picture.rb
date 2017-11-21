@@ -5,5 +5,7 @@ class Picture < ApplicationRecord
                                      thumb: Settings.thumb_image_size}
   validates_attachment_content_type :image, content_type: %r{\Aimage/.*\z}
 
+  scope :order_by_created_at, ->{order(created_at: :desc)}
+
   delegate :url, to: :image
 end
