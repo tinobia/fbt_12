@@ -7,7 +7,7 @@
     </address>
     <div><%= comment.content.html_safe %></div>
     <%= link_to t("shared.comment"), "javascript:void(0)",
-      class: "js-comment-button gradient-button right" if logged_in? %>
+      class: "js-comment-button gradient-button right" if user_signed_in? %>
     <%= render "comments/comment_form", commentable: comment, comment: Comment.new %>
     <%= render "comments/comments", comments: comment.comments %>
   </div>

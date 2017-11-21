@@ -31,7 +31,7 @@
                   max: trip.max_people %>
               </span>
               <span><%= t ".price_html", price: number_to_currency(trip.price) %></span>
-              <% if logged_in? %>
+              <% if user_signed_in? %>
                 <%= link_to t("shared.book"),
                   new_booking_request_path(user_id: current_user.id, trip_id: trip.id),
                   class: "gradient-button" %>
@@ -88,7 +88,7 @@
           <% end %>
         </ul>
       </article>
-      <% if logged_in? %>
+      <% if user_signed_in? %>
         <article class="js-new-review">
           <h1><%= t ".new_review" %></h1>
           <%= render "reviews/review_form",

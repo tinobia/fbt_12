@@ -1,0 +1,22 @@
+<% provide :title, t(".title") %>
+<div class="content clearfix">
+  <h1><%= t ".title" %></h1>
+  <div class="password-form">
+    <%= form_for resource, as: resource_name, url: password_path(resource_name),
+      html: { method: :post } do |f| %>
+
+      <%= devise_error_messages! %>
+
+      <div class="f-item">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit t(".submit"), class: "gradient-button" %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
