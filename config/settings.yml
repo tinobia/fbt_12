@@ -26,3 +26,6 @@ trips_tab: "trips"
 contact_number: "0165-888-8888"
 like: "like"
 unlike: "unlike"
+omniauth:
+  facebook: "Facebook"
+  google: "Google"
