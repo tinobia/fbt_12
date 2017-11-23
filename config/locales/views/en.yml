@@ -60,6 +60,11 @@ en:
       title: All tours
       price_from_html: >-
         Price per person start from <em>%{price}</em>
+    search_form:
+      departure?_html: <em>01</em> Departure?
+      arrival?_html: <em>02</em> Arrival?
+      name?_html: <em>03</em> Name?
+      search: Search
     show:
       availability: "Availability"
       description: "Description"
