@@ -1,0 +1,13 @@
+<% if page.current? %>
+  <span class="current">
+    <%= content_tag :a, page, remote: remote,
+      rel: (page.next? ? "next" : (page.prev? ? "prev" : nil)),
+      class: "page-link" %>
+  </span>
+<% else %>
+  <span>
+    <%= link_to page, url, remote: remote,
+      rel: (page.next? ? "next" : (page.prev? ? "prev" : nil)),
+      class: "page-link" %>
+  </span>
+<% end %>
