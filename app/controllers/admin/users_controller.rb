@@ -3,15 +3,15 @@ module Admin
     before_action :load_user, only: %i(show edit update)
 
     def index
-      @users = User.paginate page: params[:page],
-        per_page: Settings.per_page.user
+      @users = User.order_by_created_at
+        .page(params[:page]).per Settings.per_page.user
     end
 
     def show
-      @requests = @user.booking_requests.paginate page: params[:page],
-        per_page: Settings.per_page.booking_requests
-      @reviews = @user.reviews.paginate page: params[:page],
-        per_page: Settings.per_page.review
+      @requests = @user.booking_requests.order_by_created_at
+        .page(params[:request_page]).per Settings.per_page.booking_request
+      @reviews = @user.reviews.order_by_created_at
+        .page(params[:review_page]).per Settings.per_page.review
     end
 
     def edit; end

@@ -12,6 +12,7 @@ class Trip < ApplicationRecord
   validate :from_is_before_to
 
   scope :active, ->{where(active: true)}
+  scope :order_by_created_at, ->{order(created_at: :desc)}
 
   delegate :name, to: :tour
 

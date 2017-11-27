@@ -5,8 +5,8 @@ module Admin
     before_action :load_trips, except: %i(destroy destroy)
 
     def index
-      @requests = BookingRequest.all.paginate page: params[:page],
-        per_page: Settings.per_page.booking_requests
+      @requests = BookingRequest.order_by_created_at.page(params[:request_page])
+        .per Settings.per_page.booking_request
     end
 
     def new

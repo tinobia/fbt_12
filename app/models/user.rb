@@ -11,6 +11,8 @@ class User < ApplicationRecord
   validates :first_name, length: {maximum: Settings.max_first_name_length}
   validates :last_name, length: {maximum: Settings.max_last_name_length}
 
+  scope :order_by_created_at, ->{order(created_at: :desc)}
+
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable,
     :confirmable

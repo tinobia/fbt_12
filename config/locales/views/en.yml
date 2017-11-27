@@ -66,14 +66,15 @@ en:
       arrival?_html: <em>02</em> Arrival?
       name?_html: <em>03</em> Name?
       search: Search
-    show:
-      availability: "Availability"
-      description: "Description"
-      trips: "Trips"
+    trips:
       from_html: "<em>From:</em> %{from}"
       to_html: "<em>To:</em> %{to}"
       slot_html: "<em>Slots:</em> %{count}/%{max} peoples"
       price_html: "<em>Price:</em> %{price}"
+    show:
+      availability: "Availability"
+      description: "Description"
+      trips: "Trips"
       no_rating: "No rating"
       rating: "%{rate}/10"
       new_review: "New review"

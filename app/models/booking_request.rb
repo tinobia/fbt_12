@@ -10,6 +10,8 @@ class BookingRequest < ApplicationRecord
   after_validation :process_payment
   after_save :update_total_people
 
+  scope :order_by_created_at, ->{order(created_at: :desc)}
+
   enum status: %i(pending paid)
 
   def total_price

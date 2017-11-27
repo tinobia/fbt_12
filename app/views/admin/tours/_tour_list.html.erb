@@ -30,8 +30,4 @@
     <% end %>
   </tbody>
 </table>
-<% if will_paginate tours %>
-  <div class="pagination justify-content-center">
-    <%= will_paginate tours, container: false %>
-  </div>
-<% end %>
+<%= paginate tours %>
