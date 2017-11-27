@@ -1,0 +1,9 @@
+<div class="js-reviews">
+  <ul class="reviews js-review-list">
+    <% reviews.each do |review| %>
+      <%= render "reviews/review", review: review %>
+    <% end %>
+  </ul>
+  <%= paginate reviews, remote: true, theme: Settings.themes.user,
+    param_name: :review_page %>
+</div>

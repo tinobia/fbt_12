@@ -22,12 +22,14 @@
     </section>
     <section id="MyTrips" class="tab-content">
       <article class="mysettings">
-      <%= render "trips" %>
+        <h1><%= t "users.show.my_trips" %></h1>
+        <%= render "trips" %>
       </article>
     </section>
     <section id="MyReviews" class="tab-content">
       <article class="mysettings">
-        <%= render "reviews", reviews: @reviews %>
+        <h1><%= t "users.show.my_reviews" %></h1>
+        <%= render "reviews/reviews", reviews: @reviews %>
       </article>
     </section>
   </section>
