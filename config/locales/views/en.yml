@@ -221,7 +221,7 @@ en:
       can_not_be_self_or_descendants: "can't be self or descendants"
       total_people_bigger_than_max_people: "bigger than max people"
       is_before_to: "must be before to"
-      must_be_smaller_than_available_slot: "must be smaller than available slot"
+      must_be_smaller_or_equal_to_available_slot: "must be smaller or equal to available slot"
       booking_failed: "Booking failed"
       like_failed: "Like failed"
       unlike_failed: "Unlike failed"
@@ -229,6 +229,8 @@ en:
       review_failed: "Fail to created review"
       not_allowed: "You are not allowed to do this."
       comment_failed: "Fail to created comment"
+      charge_declined: "Your charge was declined because: %{message}"
+      unexpected_error: "Unexpected error happened"
     warning_messages:
       account_not_activated: "You have to activate your account before logging in."
     success_messages:

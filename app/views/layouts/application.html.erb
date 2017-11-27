@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+    <%= yield :js %>
   </head>
 
   <body data-page="<%= controller_name %>:<%= action_name %>">
@@ -18,5 +19,4 @@
     </div>
   </body>
   <%= render "shared/footer" %>
-  <%= yield :js %>
 </html>

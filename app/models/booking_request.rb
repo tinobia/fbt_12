@@ -5,7 +5,7 @@ class BookingRequest < ApplicationRecord
   belongs_to :trip
 
   validates :number_of_people, presence: true, numericality: {greater_than: 0}
-  validate :number_of_people_must_be_smaller_than_available_slot
+  validate :number_of_people_must_be_smaller_or_equal_to_available_slot
 
   after_validation :process_payment
   after_save :update_total_people
@@ -38,9 +38,9 @@ class BookingRequest < ApplicationRecord
       total_people: (number_of_people - (number_of_people_was || 0))
   end
 
-  def number_of_people_must_be_smaller_than_available_slot
-    return if number_of_people.nil? || number_of_people < trip.available_slot
+  def number_of_people_must_be_smaller_or_equal_to_available_slot
+    return if number_of_people.nil? || number_of_people <= trip.available_slot
     errors.add :number_of_people,
-      t("shared.error_messages.must_be_smaller_than_available_slot")
+      t("shared.error_messages.must_be_smaller_or_equal_to_available_slot")
   end
 end
